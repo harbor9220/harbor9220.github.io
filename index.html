@@ -1,0 +1,2276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>360福利社 - 官方品牌视频门户 | 品质生活影像社区</title>
+<meta name="description" content="360福利社官方网站，以原创高清视频记录品质生活、分享实用福利攻略与创作者故事，深耕生活影像垂直领域，打造值得信赖的内容生态社区。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff6a3d'/%3E%3Ccircle cx='32' cy='30' r='15' fill='none' stroke='%23fff' stroke-width='4'/%3E%3Cpath d='M27 22 L42 30 L27 38 Z' fill='%23fff'/%3E%3Crect x='16' y='50' width='32' height='5' rx='2.5' fill='%23ffd9c9'/%3E%3C/svg%3E">
+<style>
+:root{
+  --wf-orange:#ff6a3d;
+  --wf-orange-deep:#e04f22;
+  --wf-amber:#ffb347;
+  --wf-cream:#fdf7f0;
+  --wf-cream-2:#fbefe2;
+  --wf-ink:#2c2320;
+  --wf-ink-soft:#6b5c55;
+  --wf-line:#f0ddcc;
+  --wf-card:#ffffff;
+  --wf-shadow:0 10px 30px rgba(208,120,60,.12);
+  --wf-radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  color:var(--wf-ink);
+  background:var(--wf-cream);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+
+/* ===== 吸顶区（公告条 + 页头） ===== */
+.wf-sticky-wrap{
+  position:sticky;
+  top:0;
+  z-index:120;
+}
+.wf-notice-bar{
+  background:linear-gradient(90deg,var(--wf-orange-deep),var(--wf-orange) 55%,var(--wf-amber));
+  color:#fff;
+  font-size:13px;
+  letter-spacing:.2px;
+}
+.wf-notice-inner{
+  max-width:1200px;margin:0 auto;
+  padding:9px 20px;
+  display:flex;align-items:center;gap:12px;
+  overflow:hidden;
+}
+.wf-notice-tag{
+  flex:none;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:999px;
+  padding:1px 10px;
+  font-size:12px;
+  font-weight:600;
+}
+.wf-notice-track{
+  flex:1;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.wf-notice-track b{font-weight:700}
+.wf-notice-more{
+  flex:none;font-size:12px;color:#fff;
+  border-bottom:1px dashed rgba(255,255,255,.7);
+  padding-bottom:1px;
+}
+.wf-header{
+  background:rgba(253,247,240,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--wf-line);
+}
+.wf-header-inner{
+  max-width:1200px;margin:0 auto;
+  padding:0 20px;
+  height:68px;
+  display:flex;align-items:center;gap:22px;
+}
+.wf-logo{
+  display:flex;align-items:center;gap:10px;
+  flex:none;
+}
+.wf-logo-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(135deg,var(--wf-orange),var(--wf-amber));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 14px rgba(255,106,61,.35);
+}
+.wf-logo-mark svg{width:22px;height:22px}
+.wf-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.wf-logo-name{font-size:18px;font-weight:800;letter-spacing:.5px}
+.wf-logo-sub{font-size:11px;color:var(--wf-ink-soft);letter-spacing:2px}
+.wf-nav{
+  display:flex;align-items:center;gap:4px;
+  flex:1;
+}
+.wf-nav a{
+  font-size:14px;color:var(--wf-ink-soft);
+  padding:7px 12px;border-radius:999px;
+  transition:.22s;
+  white-space:nowrap;
+}
+.wf-nav a:hover,.wf-nav a.is-active{
+  color:var(--wf-orange-deep);
+  background:var(--wf-cream-2);
+}
+.wf-search{
+  flex:none;
+  display:flex;align-items:center;
+  background:#fff;
+  border:1px solid var(--wf-line);
+  border-radius:999px;
+  padding:5px 6px 5px 14px;
+  width:236px;
+  transition:.25s;
+}
+.wf-search:focus-within{
+  border-color:var(--wf-orange);
+  box-shadow:0 0 0 4px rgba(255,106,61,.12);
+  width:280px;
+}
+.wf-search input{
+  flex:1;border:none;outline:none;
+  font-size:13px;background:transparent;color:var(--wf-ink);
+  min-width:0;
+}
+.wf-search button{
+  flex:none;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--wf-orange);
+  display:flex;align-items:center;justify-content:center;
+}
+.wf-search button svg{width:14px;height:14px;stroke:#fff}
+.wf-search-hint{
+  font-size:12px;color:var(--wf-ink-soft);
+  position:absolute;
+  max-width:1200px;
+  margin:0 auto;
+}
+.wf-search-feedback{
+  position:absolute;top:100%;left:0;right:0;
+  margin:0 auto;max-width:1200px;
+  padding:0 20px;
+  pointer-events:none;
+}
+.wf-search-feedback span{
+  display:inline-block;
+  background:var(--wf-ink);
+  color:#fff;font-size:12px;
+  padding:6px 14px;border-radius:10px;
+  margin-top:8px;
+  opacity:0;transform:translateY(-4px);
+  transition:.25s;
+}
+.wf-search-feedback span.show{opacity:1;transform:translateY(0)}
+.wf-burger{
+  display:none;
+  width:40px;height:40px;border-radius:10px;
+  background:var(--wf-cream-2);
+  align-items:center;justify-content:center;
+  flex:none;
+}
+.wf-burger span{
+  display:block;width:18px;height:2px;background:var(--wf-ink);
+  position:relative;transition:.25s;
+}
+.wf-burger span::before,.wf-burger span::after{
+  content:"";position:absolute;left:0;width:18px;height:2px;background:var(--wf-ink);
+  transition:.25s;
+}
+.wf-burger span::before{top:-6px}
+.wf-burger span::after{top:6px}
+.wf-burger.is-open span{background:transparent}
+.wf-burger.is-open span::before{top:0;transform:rotate(45deg)}
+.wf-burger.is-open span::after{top:0;transform:rotate(-45deg)}
+
+/* ===== 通用容器与标题 ===== */
+.wf-container{max-width:1200px;margin:0 auto;padding:0 20px}
+.wf-section{padding:70px 0}
+.wf-section--tint{background:var(--wf-cream-2)}
+.wf-section--dark{
+  background:linear-gradient(160deg,#2c2320,#40312b 70%,#4a342a);
+  color:#f7ece3;
+}
+.wf-sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:24px;margin-bottom:36px;flex-wrap:wrap;
+}
+.wf-sec-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:3px;
+  color:var(--wf-orange-deep);
+  font-weight:700;
+  margin-bottom:8px;
+}
+.wf-sec-eyebrow::before{
+  content:"";width:22px;height:2px;background:var(--wf-orange);
+}
+.wf-sec-title{
+  font-size:29px;font-weight:800;line-height:1.3;letter-spacing:.3px;
+}
+.wf-sec-desc{
+  font-size:14px;color:var(--wf-ink-soft);max-width:520px;margin-top:8px;
+}
+.wf-section--dark .wf-sec-desc{color:#cdb9ad}
+.wf-section--dark .wf-sec-title{color:#fff}
+.wf-link-arrow{
+  font-size:14px;font-weight:600;color:var(--wf-orange-deep);
+  display:inline-flex;align-items:center;gap:6px;
+  border-bottom:1px solid transparent;
+  transition:.2s;flex:none;
+}
+.wf-link-arrow:hover{border-bottom-color:var(--wf-orange-deep);gap:10px}
+
+/* ===== 首屏 ===== */
+.wf-hero{
+  position:relative;
+  overflow:hidden;
+  padding:64px 0 76px;
+  background:
+    radial-gradient(900px 420px at 88% -8%,rgba(255,179,71,.32),transparent 70%),
+    radial-gradient(700px 380px at 4% 108%,rgba(255,106,61,.18),transparent 70%),
+    var(--wf-cream);
+}
+.wf-hero-grid{
+  display:grid;grid-template-columns:1fr 1.02fr;gap:52px;align-items:center;
+}
+.wf-badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.wf-badge{
+  font-size:12px;font-weight:600;
+  padding:5px 12px;border-radius:999px;
+  background:#fff;border:1px solid var(--wf-line);
+  color:var(--wf-ink-soft);
+}
+.wf-badge--hot{
+  background:var(--wf-orange);border-color:var(--wf-orange);color:#fff;
+  box-shadow:0 4px 12px rgba(255,106,61,.3);
+}
+.wf-h1{
+  font-size:46px;line-height:1.22;font-weight:900;letter-spacing:-.5px;
+}
+.wf-h1 em{
+  font-style:normal;
+  background:linear-gradient(120deg,var(--wf-orange-deep),var(--wf-amber));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.wf-hero-lead{
+  margin-top:18px;
+  font-size:16px;color:var(--wf-ink-soft);
+  max-width:520px;
+}
+.wf-hero-intro{
+  margin-top:22px;
+  font-size:14.5px;color:var(--wf-ink-soft);
+  background:#fff;
+  border-left:4px solid var(--wf-orange);
+  border-radius:0 14px 14px 0;
+  padding:16px 20px;
+  box-shadow:var(--wf-shadow);
+  max-width:560px;
+}
+.wf-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.wf-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:999px;
+  font-size:14.5px;font-weight:700;
+  transition:.24s;
+}
+.wf-btn--primary{
+  background:linear-gradient(135deg,var(--wf-orange),var(--wf-amber));
+  color:#fff;box-shadow:0 10px 22px rgba(255,106,61,.32);
+}
+.wf-btn--primary:hover{transform:translateY(-2px);box-shadow:0 14px 26px rgba(255,106,61,.4)}
+.wf-btn--ghost{
+  background:#fff;color:var(--wf-ink);
+  border:1px solid var(--wf-line);
+}
+.wf-btn--ghost:hover{border-color:var(--wf-orange);color:var(--wf-orange-deep)}
+.wf-hero-stats{
+  display:flex;gap:38px;margin-top:34px;flex-wrap:wrap;
+}
+.wf-stat-num{
+  font-size:26px;font-weight:900;color:var(--wf-orange-deep);
+  font-variant-numeric:tabular-nums;
+}
+.wf-stat-num small{font-size:14px;font-weight:700;margin-left:2px}
+.wf-stat-label{font-size:12.5px;color:var(--wf-ink-soft)}
+
+/* 首屏主视觉 */
+.wf-hero-visual{position:relative}
+.wf-hero-cover{
+  position:relative;border-radius:24px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(180,90,40,.25);
+  aspect-ratio:16/11;
+  background:#3a2b24;
+}
+.wf-hero-cover img{width:100%;height:100%;object-fit:cover}
+.wf-hero-cover .wf-cover-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(30,18,12,0) 30%,rgba(30,18,12,.78) 100%);
+}
+.wf-hero-cover-text{
+  position:absolute;left:22px;right:22px;bottom:20px;color:#fff;
+}
+.wf-hero-cover-text h3{font-size:19px;font-weight:800}
+.wf-hero-cover-text p{font-size:12.5px;color:#f0d9c9;margin-top:2px}
+.wf-play-btn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:66px;height:66px;border-radius:50%;
+  background:rgba(255,255,255,.9);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 26px rgba(0,0,0,.28);
+  transition:.25s;
+}
+.wf-play-btn:hover{transform:translate(-50%,-50%) scale(1.08);background:#fff}
+.wf-play-btn svg{width:24px;height:24px;fill:var(--wf-orange-deep);margin-left:3px}
+.wf-hero-float{
+  position:absolute;background:#fff;border-radius:16px;
+  box-shadow:0 14px 34px rgba(180,90,40,.2);
+  padding:12px 16px;
+  display:flex;align-items:center;gap:10px;
+  font-size:12.5px;
+  animation:wf-float 5s ease-in-out infinite;
+}
+.wf-hero-float--a{top:-16px;right:-8px}
+.wf-hero-float--b{bottom:-18px;left:-10px;animation-delay:1.6s}
+.wf-hero-float b{font-size:16px;color:var(--wf-orange-deep)}
+.wf-hero-float .wf-dot{
+  width:36px;height:36px;border-radius:12px;
+  background:var(--wf-cream-2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+}
+@keyframes wf-float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* ===== 焦点内容 ===== */
+.wf-focus-grid{
+  display:grid;grid-template-columns:1.35fr 1fr;gap:26px;
+}
+.wf-focus-main{
+  position:relative;border-radius:var(--wf-radius);overflow:hidden;
+  min-height:400px;
+  box-shadow:var(--wf-shadow);
+  background:#3a2b24;
+}
+.wf-focus-main img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.wf-focus-main .wf-cover-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(30,18,12,.05) 35%,rgba(30,18,12,.86) 100%);
+}
+.wf-focus-main-body{
+  position:absolute;left:26px;right:26px;bottom:24px;color:#fff;
+}
+.wf-focus-main-body h3{font-size:23px;font-weight:800;line-height:1.35}
+.wf-focus-main-body p{font-size:13.5px;color:#f0d9c9;margin-top:8px;max-width:500px}
+.wf-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.wf-chip{
+  font-size:11.5px;font-weight:600;
+  padding:3px 10px;border-radius:999px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.32);
+  color:#fff;
+}
+.wf-chip--solid{background:var(--wf-orange);border-color:var(--wf-orange)}
+.wf-focus-side{display:grid;grid-template-rows:1fr 1fr;gap:26px}
+.wf-focus-item{
+  position:relative;border-radius:var(--wf-radius);overflow:hidden;
+  background:#3a2b24;box-shadow:var(--wf-shadow);
+  min-height:186px;
+}
+.wf-focus-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wf-focus-item .wf-cover-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(30,18,12,0) 40%,rgba(30,18,12,.84) 100%);
+}
+.wf-focus-item-body{position:absolute;left:18px;right:18px;bottom:14px;color:#fff}
+.wf-focus-item-body h3{font-size:16px;font-weight:700;line-height:1.4}
+.wf-focus-item-body span{font-size:11.5px;color:#e8cfbf}
+.wf-card-meta{
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;color:inherit;margin-top:8px;flex-wrap:wrap;
+}
+.wf-card-meta .wf-meta-sep{opacity:.5}
+
+/* ===== 深度解析长文 ===== */
+.wf-article-wrap{
+  display:grid;grid-template-columns:1fr 320px;gap:46px;align-items:start;
+}
+.wf-article h2{
+  font-size:26px;font-weight:800;margin-bottom:8px;
+}
+.wf-article .wf-article-sub{
+  font-size:13px;color:var(--wf-orange-deep);font-weight:600;letter-spacing:1px;
+  margin-bottom:22px;
+}
+.wf-article p{
+  font-size:15px;color:var(--wf-ink-soft);margin-bottom:16px;text-align:justify;
+}
+.wf-article h3{
+  font-size:17.5px;font-weight:800;color:var(--wf-ink);
+  margin:26px 0 10px;
+  display:flex;align-items:center;gap:9px;
+}
+.wf-article h3::before{
+  content:"";width:7px;height:18px;border-radius:3px;
+  background:linear-gradient(180deg,var(--wf-orange),var(--wf-amber));
+}
+.wf-article strong{color:var(--wf-orange-deep);font-weight:700}
+.wf-side-card{
+  background:#fff;border-radius:var(--wf-radius);
+  padding:22px;box-shadow:var(--wf-shadow);
+  margin-bottom:22px;
+}
+.wf-side-card h4{font-size:15px;font-weight:800;margin-bottom:14px}
+.wf-side-list li{
+  display:flex;gap:12px;padding:11px 0;
+  border-bottom:1px dashed var(--wf-line);
+  font-size:13.5px;color:var(--wf-ink-soft);
+}
+.wf-side-list li:last-child{border-bottom:none;padding-bottom:0}
+.wf-side-rank{
+  flex:none;width:22px;height:22px;border-radius:7px;
+  background:var(--wf-cream-2);color:var(--wf-orange-deep);
+  font-size:12px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.wf-side-rank--top{background:var(--wf-orange);color:#fff}
+.wf-tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.wf-tag-cloud a{
+  font-size:12.5px;padding:5px 12px;border-radius:999px;
+  background:var(--wf-cream-2);color:var(--wf-ink-soft);
+  transition:.2s;
+}
+.wf-tag-cloud a:hover{background:var(--wf-orange);color:#fff}
+
+/* ===== 视频流 ===== */
+.wf-filter-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.wf-filter-btn{
+  font-size:13px;font-weight:600;
+  padding:7px 16px;border-radius:999px;
+  background:#fff;border:1px solid var(--wf-line);
+  color:var(--wf-ink-soft);transition:.2s;
+}
+.wf-filter-btn:hover{border-color:var(--wf-orange);color:var(--wf-orange-deep)}
+.wf-filter-btn.is-active{
+  background:var(--wf-orange);border-color:var(--wf-orange);color:#fff;
+  box-shadow:0 6px 16px rgba(255,106,61,.28);
+}
+.wf-video-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+}
+.wf-video-card{
+  background:#fff;border-radius:var(--wf-radius);
+  overflow:hidden;box-shadow:0 4px 16px rgba(208,120,60,.1);
+  transition:transform .28s,box-shadow .28s;
+  display:flex;flex-direction:column;
+  border:1px solid transparent;
+}
+.wf-video-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 38px rgba(208,120,60,.2);
+  border-color:var(--wf-line);
+}
+.wf-cover{
+  position:relative;aspect-ratio:16/9;overflow:hidden;background:#3a2b24;
+}
+.wf-cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.wf-video-card:hover .wf-cover img{transform:scale(1.06)}
+.wf-cover-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(30,18,12,0) 45%,rgba(30,18,12,.55) 100%);
+}
+.wf-cover-tag{
+  position:absolute;top:10px;left:10px;
+  font-size:11px;font-weight:700;
+  background:rgba(255,255,255,.92);color:var(--wf-orange-deep);
+  padding:3px 9px;border-radius:7px;
+}
+.wf-cover-duration{
+  position:absolute;right:10px;bottom:10px;
+  font-size:11px;font-weight:600;
+  background:rgba(20,14,10,.72);color:#fff;
+  padding:2px 8px;border-radius:6px;
+}
+.wf-cover-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.85);
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.9);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:.28s;
+}
+.wf-video-card:hover .wf-cover-play{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.wf-cover-play svg{width:16px;height:16px;fill:var(--wf-orange-deep);margin-left:2px}
+.wf-video-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.wf-video-body h3{
+  font-size:15.5px;font-weight:800;line-height:1.45;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.wf-video-desc{
+  font-size:12.5px;color:var(--wf-ink-soft);margin-top:7px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  line-height:1.6;
+}
+.wf-video-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.wf-video-tags span{
+  font-size:11px;color:var(--wf-orange-deep);
+  background:var(--wf-cream-2);
+  padding:2px 9px;border-radius:6px;
+}
+.wf-video-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:14px;padding-top:12px;border-top:1px dashed var(--wf-line);
+  gap:8px;
+}
+.wf-author-mini{display:flex;align-items:center;gap:8px;min-width:0}
+.wf-avatar{
+  flex:none;width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,var(--wf-orange),var(--wf-amber));
+}
+.wf-avatar--a{background:linear-gradient(135deg,#5b8def,#3fc1c9)}
+.wf-avatar--b{background:linear-gradient(135deg,#9b5de5,#f15bb5)}
+.wf-avatar--c{background:linear-gradient(135deg,#00b894,#55efc4)}
+.wf-avatar--d{background:linear-gradient(135deg,#e17055,#fdcb6e)}
+.wf-avatar--e{background:linear-gradient(135deg,#0984e3,#74b9ff)}
+.wf-author-mini span{font-size:12px;color:var(--wf-ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-ops{display:flex;align-items:center;gap:12px;flex:none}
+.wf-op{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;color:var(--wf-ink-soft);
+  transition:.2s;
+}
+.wf-op svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}
+.wf-op:hover{color:var(--wf-orange-deep)}
+.wf-op.is-liked{color:var(--wf-orange-deep);font-weight:700}
+.wf-op.is-liked svg{fill:var(--wf-orange);stroke:var(--wf-orange)}
+.wf-op.is-saved{color:var(--wf-orange-deep);font-weight:700}
+.wf-op.is-saved svg{fill:var(--wf-orange);stroke:var(--wf-orange)}
+
+/* ===== 专题 ===== */
+.wf-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.wf-topic-card{
+  background:#fff;border-radius:var(--wf-radius);overflow:hidden;
+  box-shadow:var(--wf-shadow);display:flex;flex-direction:column;
+}
+.wf-topic-card .wf-cover{aspect-ratio:16/9}
+.wf-topic-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.wf-topic-status{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:700;color:#2e9e6b;
+  margin-bottom:8px;
+}
+.wf-topic-status i{
+  width:7px;height:7px;border-radius:50%;background:#2e9e6b;
+  animation:wf-pulse 1.6s infinite;
+}
+@keyframes wf-pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.wf-topic-body h3{font-size:16.5px;font-weight:800;line-height:1.4}
+.wf-topic-body p{font-size:13px;color:var(--wf-ink-soft);margin-top:8px;line-height:1.65}
+.wf-topic-foot{
+  margin-top:auto;padding-top:14px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--wf-ink-soft);
+}
+
+/* ===== 作者矩阵 ===== */
+.wf-author-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.wf-author-card{
+  background:#fff;border-radius:var(--wf-radius);
+  padding:26px 20px 22px;text-align:center;
+  box-shadow:var(--wf-shadow);
+  transition:transform .26s,box-shadow .26s;
+  border:1px solid transparent;
+}
+.wf-author-card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(208,120,60,.2);border-color:var(--wf-line)}
+.wf-author-big{
+  width:66px;height:66px;border-radius:50%;margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;font-weight:900;color:#fff;
+  background:linear-gradient(135deg,var(--wf-orange),var(--wf-amber));
+  box-shadow:0 8px 18px rgba(255,106,61,.3);
+}
+.wf-author-big--2{background:linear-gradient(135deg,#5b8def,#3fc1c9);box-shadow:0 8px 18px rgba(70,130,220,.3)}
+.wf-author-big--3{background:linear-gradient(135deg,#9b5de5,#f15bb5);box-shadow:0 8px 18px rgba(150,90,220,.3)}
+.wf-author-big--4{background:linear-gradient(135deg,#00b894,#55efc4);box-shadow:0 8px 18px rgba(0,170,140,.3)}
+.wf-author-card h3{font-size:15.5px;font-weight:800}
+.wf-author-field{
+  font-size:12px;color:var(--wf-orange-deep);font-weight:600;
+  margin:4px 0 10px;
+}
+.wf-author-bio{
+  font-size:12.5px;color:var(--wf-ink-soft);line-height:1.65;
+  min-height:62px;
+}
+.wf-author-stats{
+  display:flex;justify-content:center;gap:18px;
+  margin:14px 0 14px;font-size:11.5px;color:var(--wf-ink-soft);
+}
+.wf-author-stats b{display:block;font-size:15px;color:var(--wf-ink);font-weight:800}
+.wf-author-btn{
+  width:100%;padding:8px;border-radius:10px;
+  background:var(--wf-cream-2);color:var(--wf-orange-deep);
+  font-size:12.5px;font-weight:700;transition:.2s;
+}
+.wf-author-btn:hover{background:var(--wf-orange);color:#fff}
+
+/* ===== 作品墙 ===== */
+.wf-wall{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:150px;
+  gap:16px;
+}
+.wf-wall-item{
+  position:relative;border-radius:14px;overflow:hidden;
+  background:#3a2b24;box-shadow:0 4px 14px rgba(208,120,60,.12);
+  transition:transform .25s;
+}
+.wf-wall-item:hover{transform:translateY(-4px)}
+.wf-wall-item img{width:100%;height:100%;object-fit:cover}
+.wf-wall-item .wf-cover-gradient{
+  background:linear-gradient(180deg,rgba(30,18,12,0) 42%,rgba(30,18,12,.8) 100%);
+}
+.wf-wall-item span{
+  position:absolute;left:12px;right:12px;bottom:10px;
+  color:#fff;font-size:12.5px;font-weight:700;line-height:1.4;
+}
+.wf-wall-item--big{grid-column:span 2;grid-row:span 2}
+.wf-wall-item--wide{grid-column:span 2}
+.wf-wall-item--tall{grid-row:span 2}
+
+/* ===== 用户评价 ===== */
+.wf-review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.wf-review-card{
+  background:#fff;border-radius:var(--wf-radius);
+  padding:22px;box-shadow:var(--wf-shadow);
+  display:flex;flex-direction:column;
+}
+.wf-review-card:nth-child(2){background:linear-gradient(160deg,#fff5ec,#fff)}
+.wf-review-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.wf-review-user{font-size:13.5px;font-weight:800}
+.wf-review-user small{display:block;font-size:11px;font-weight:500;color:var(--wf-ink-soft);margin-top:1px}
+.wf-review-stars{margin-left:auto;color:var(--wf-amber);font-size:12px;letter-spacing:1px;flex:none}
+.wf-review-text{font-size:13.5px;color:var(--wf-ink-soft);line-height:1.75}
+.wf-review-tag{
+  align-self:flex-start;margin-top:14px;
+  font-size:11.5px;color:var(--wf-orange-deep);
+  background:var(--wf-cream-2);padding:3px 10px;border-radius:999px;
+}
+.wf-review-more{
+  text-align:center;margin-top:30px;
+}
+
+/* ===== 创作灵感/攻略 ===== */
+.wf-inspo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.wf-inspo-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--wf-radius);
+  padding:24px;
+  transition:.25s;
+}
+.wf-inspo-card:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
+.wf-inspo-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--wf-orange),var(--wf-amber));
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;font-size:20px;
+}
+.wf-inspo-card h3{font-size:16.5px;font-weight:800;color:#fff}
+.wf-inspo-card p{font-size:13px;color:#cdb9ad;margin-top:8px;line-height:1.7}
+.wf-inspo-list{margin-top:14px}
+.wf-inspo-list li{
+  font-size:12.5px;color:#e0cdc0;
+  padding-left:16px;position:relative;margin-bottom:8px;
+}
+.wf-inspo-list li::before{
+  content:"";position:absolute;left:0;top:8px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--wf-amber);
+}
+
+/* ===== 动态/更新日志 ===== */
+.wf-news-wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:start}
+.wf-news-list{display:flex;flex-direction:column;gap:16px}
+.wf-news-item{
+  background:#fff;border-radius:14px;padding:18px 20px;
+  display:flex;gap:16px;align-items:flex-start;
+  box-shadow:0 4px 14px rgba(208,120,60,.08);
+  transition:.22s;
+}
+.wf-news-item:hover{box-shadow:var(--wf-shadow);transform:translateX(4px)}
+.wf-news-date{
+  flex:none;width:56px;text-align:center;
+  background:var(--wf-cream-2);border-radius:10px;padding:8px 0;
+}
+.wf-news-date b{display:block;font-size:18px;font-weight:900;color:var(--wf-orange-deep);line-height:1.1}
+.wf-news-date span{font-size:10.5px;color:var(--wf-ink-soft)}
+.wf-news-content h3{font-size:14.5px;font-weight:800;line-height:1.5}
+.wf-news-content p{font-size:12.5px;color:var(--wf-ink-soft);margin-top:5px;line-height:1.6}
+.wf-news-tag{
+  display:inline-block;font-size:11px;color:var(--wf-orange-deep);
+  background:var(--wf-cream-2);border-radius:6px;padding:1px 8px;margin-top:8px;
+}
+.wf-partner-box{
+  background:#fff;border-radius:var(--wf-radius);
+  padding:26px;box-shadow:var(--wf-shadow);
+}
+.wf-partner-box h3{font-size:16.5px;font-weight:800;margin-bottom:6px}
+.wf-partner-box p{font-size:13px;color:var(--wf-ink-soft);margin-bottom:18px}
+.wf-partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.wf-partner-cell{
+  border:1px solid var(--wf-line);border-radius:12px;
+  padding:14px 10px;text-align:center;
+  font-size:13px;font-weight:700;color:var(--wf-ink-soft);
+  background:var(--wf-cream);
+  transition:.2s;
+}
+.wf-partner-cell:hover{border-color:var(--wf-orange);color:var(--wf-orange-deep);background:#fff}
+
+/* ===== FAQ ===== */
+.wf-faq-list{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.wf-faq-item{
+  background:#fff;border-radius:14px;
+  border:1px solid var(--wf-line);
+  overflow:hidden;
+}
+.wf-faq-item summary{
+  list-style:none;cursor:pointer;
+  padding:17px 22px;
+  font-size:15px;font-weight:700;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  transition:.2s;
+}
+.wf-faq-item summary::-webkit-details-marker{display:none}
+.wf-faq-item summary::after{
+  content:"+";flex:none;
+  width:24px;height:24px;border-radius:7px;
+  background:var(--wf-cream-2);color:var(--wf-orange-deep);
+  font-size:16px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  transition:.25s;
+}
+.wf-faq-item[open] summary{color:var(--wf-orange-deep)}
+.wf-faq-item[open] summary::after{content:"−";background:var(--wf-orange);color:#fff}
+.wf-faq-item p{
+  padding:0 22px 18px;font-size:13.5px;color:var(--wf-ink-soft);line-height:1.8;
+}
+
+/* ===== 联系/投稿 ===== */
+.wf-contact-wrap{
+  display:grid;grid-template-columns:1fr 1fr;gap:36px;
+  background:linear-gradient(140deg,#fff3e8,#fff);
+  border:1px solid var(--wf-line);
+  border-radius:24px;
+  padding:44px;
+}
+.wf-contact-wrap h2{font-size:26px;font-weight:900;line-height:1.35}
+.wf-contact-wrap > div > p{font-size:14px;color:var(--wf-ink-soft);margin-top:12px;line-height:1.8}
+.wf-contact-info{margin-top:26px;display:flex;flex-direction:column;gap:14px}
+.wf-contact-row{display:flex;align-items:flex-start;gap:12px;font-size:13.5px}
+.wf-contact-row .wf-contact-ico{
+  flex:none;width:34px;height:34px;border-radius:10px;
+  background:var(--wf-cream-2);color:var(--wf-orange-deep);
+  display:flex;align-items:center;justify-content:center;font-size:15px;
+}
+.wf-contact-row b{display:block;font-size:13px}
+.wf-contact-row span{font-size:12.5px;color:var(--wf-ink-soft)}
+.wf-form{display:flex;flex-direction:column;gap:12px}
+.wf-form label{font-size:12.5px;font-weight:700;color:var(--wf-ink)}
+.wf-form input,.wf-form textarea,.wf-form select{
+  width:100%;border:1px solid var(--wf-line);
+  border-radius:10px;padding:11px 14px;
+  font-size:13.5px;font-family:inherit;
+  background:#fff;outline:none;transition:.2s;
+}
+.wf-form input:focus,.wf-form textarea:focus,.wf-form select:focus{
+  border-color:var(--wf-orange);
+  box-shadow:0 0 0 3px rgba(255,106,61,.12);
+}
+.wf-form textarea{resize:vertical;min-height:90px}
+.wf-form .wf-btn{justify-content:center;margin-top:4px}
+.wf-form-note{font-size:11.5px;color:var(--wf-ink-soft);text-align:center}
+
+/* ===== 页脚 ===== */
+.wf-footer{
+  background:#2c2320;color:#cdb9ad;
+  padding:58px 0 0;
+}
+.wf-footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:38px;
+  padding-bottom:44px;
+}
+.wf-footer-brand .wf-logo-name{color:#fff}
+.wf-footer-brand .wf-logo-sub{color:#a08b7f}
+.wf-footer-brand p{font-size:13px;line-height:1.85;margin-top:16px;color:#b7a194}
+.wf-footer h4{font-size:14px;font-weight:800;color:#fff;margin-bottom:16px}
+.wf-footer li{margin-bottom:10px}
+.wf-footer li a{font-size:13px;color:#b7a194;transition:.2s}
+.wf-footer li a:hover{color:var(--wf-amber)}
+.wf-footer-meta{
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:22px 0 26px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:12px;color:#9c877a;
+}
+.wf-footer-meta a{color:#b7a194}
+.wf-footer-meta a:hover{color:var(--wf-amber)}
+
+/* ===== Toast ===== */
+.wf-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+  background:#2c2320;color:#fff;
+  font-size:13px;padding:11px 22px;border-radius:999px;
+  box-shadow:0 10px 28px rgba(0,0,0,.28);
+  opacity:0;pointer-events:none;transition:.3s;z-index:300;
+}
+.wf-toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ===== 弹窗 ===== */
+.wf-modal{
+  position:fixed;inset:0;z-index:400;
+  background:rgba(30,20,14,.55);
+  backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;pointer-events:none;transition:.28s;
+}
+.wf-modal.show{opacity:1;pointer-events:auto}
+.wf-modal-box{
+  background:#fff;border-radius:20px;
+  max-width:520px;width:100%;
+  padding:30px;
+  transform:translateY(16px) scale(.98);
+  transition:.28s;
+  max-height:86vh;overflow-y:auto;
+}
+.wf-modal.show .wf-modal-box{transform:none}
+.wf-modal-box h3{font-size:19px;font-weight:800;margin-bottom:6px}
+.wf-modal-box .wf-modal-sub{font-size:13px;color:var(--wf-ink-soft);margin-bottom:18px}
+.wf-modal-close{
+  position:absolute;top:14px;right:16px;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--wf-cream-2);color:var(--wf-ink-soft);
+  font-size:18px;display:flex;align-items:center;justify-content:center;
+}
+.wf-modal-relative{position:relative}
+.wf-share-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.wf-share-item{
+  border:1px solid var(--wf-line);border-radius:12px;
+  padding:14px;font-size:13.5px;font-weight:700;
+  text-align:center;transition:.2s;
+}
+.wf-share-item:hover{border-color:var(--wf-orange);color:var(--wf-orange-deep);background:var(--wf-cream)}
+
+/* ===== 回到顶部 ===== */
+.wf-backtop{
+  position:fixed;right:24px;bottom:28px;
+  width:46px;height:46px;border-radius:50%;
+  background:var(--wf-orange);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px rgba(255,106,61,.38);
+  opacity:0;pointer-events:none;transform:translateY(12px);
+  transition:.28s;z-index:150;
+}
+.wf-backtop.show{opacity:1;pointer-events:auto;transform:none}
+.wf-backtop svg{width:18px;height:18px;stroke:#fff;stroke-width:2.2;fill:none}
+
+/* ===== 响应式 ===== */
+@media(max-width:1024px){
+  .wf-hero-grid{grid-template-columns:1fr;gap:40px}
+  .wf-hero-float--a{right:6px}
+  .wf-hero-float--b{left:6px}
+  .wf-focus-grid{grid-template-columns:1fr}
+  .wf-focus-side{grid-template-rows:auto;grid-template-columns:1fr 1fr}
+  .wf-article-wrap{grid-template-columns:1fr}
+  .wf-video-grid{grid-template-columns:repeat(2,1fr)}
+  .wf-topic-grid{grid-template-columns:1fr 1fr}
+  .wf-author-grid{grid-template-columns:1fr 1fr}
+  .wf-review-grid{grid-template-columns:1fr 1fr}
+  .wf-inspo-grid{grid-template-columns:1fr 1fr}
+  .wf-news-wrap{grid-template-columns:1fr}
+  .wf-contact-wrap{grid-template-columns:1fr;padding:30px}
+  .wf-footer-grid{grid-template-columns:1fr 1fr}
+  .wf-nav{display:none}
+  .wf-burger{display:flex;margin-left:auto}
+  .wf-nav.is-open{
+    display:flex;flex-direction:column;align-items:stretch;
+    position:absolute;top:100%;left:0;right:0;
+    background:#fff;border-bottom:1px solid var(--wf-line);
+    padding:12px 20px 18px;gap:2px;
+    box-shadow:0 16px 30px rgba(208,120,60,.14);
+  }
+  .wf-nav.is-open a{padding:11px 14px;border-radius:10px}
+  .wf-search{width:200px}
+  .wf-search:focus-within{width:230px}
+  .wf-h1{font-size:38px}
+}
+@media(max-width:720px){
+  .wf-section{padding:52px 0}
+  .wf-h1{font-size:31px}
+  .wf-hero{padding:44px 0 56px}
+  .wf-hero-stats{gap:24px}
+  .wf-hero-float{display:none}
+  .wf-video-grid{grid-template-columns:1fr}
+  .wf-topic-grid{grid-template-columns:1fr}
+  .wf-author-grid{grid-template-columns:1fr}
+  .wf-review-grid{grid-template-columns:1fr}
+  .wf-inspo-grid{grid-template-columns:1fr}
+  .wf-wall{grid-template-columns:1fr 1fr;grid-auto-rows:130px}
+  .wf-wall-item--big{grid-column:span 2;grid-row:span 1}
+  .wf-focus-side{grid-template-columns:1fr}
+  .wf-sec-title{font-size:23px}
+  .wf-search{display:none}
+  .wf-notice-more{display:none}
+  .wf-footer-grid{grid-template-columns:1fr;gap:26px}
+  .wf-contact-wrap{padding:24px}
+  .wf-partner-grid{grid-template-columns:1fr 1fr}
+  .wf-sec-head{flex-direction:column;align-items:flex-start;gap:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+html{scroll-padding-top:126px}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶区：公告条 + 页头 -->
+<div class="wf-sticky-wrap">
+  <div class="wf-notice-bar">
+    <div class="wf-notice-inner">
+      <span class="wf-notice-tag">福利速递</span>
+      <span class="wf-notice-track">新增 <b>「秋日生活福利地图」</b> 专题 12 条原创影像 ｜ 11 月创作者挑战赛报名开启 ｜ 本周攻略合集已更新至第 38 期</span>
+      <a class="wf-notice-more" href="#wf-news">查看全部更新</a>
+    </div>
+  </div>
+  <header class="wf-header">
+    <div class="wf-header-inner">
+      <a class="wf-logo" href="#wf-top" aria-label="360福利社官方网站首页">
+        <span class="wf-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="11" r="6.4" stroke="#fff" stroke-width="2"/>
+            <path d="M10.2 8.2 L15.6 11 L10.2 13.8 Z" fill="#fff"/>
+            <rect x="6" y="19" width="12" height="2" rx="1" fill="#fff" opacity=".85"/>
+          </svg>
+        </span>
+        <span class="wf-logo-text">
+          <span class="wf-logo-name">360福利社</span>
+          <span class="wf-logo-sub">FULI VIDEO</span>
+        </span>
+      </a>
+      <nav class="wf-nav" id="wf-nav" aria-label="主导航">
+        <a href="#wf-top" class="is-active">首页</a>
+        <a href="#wf-focus">焦点视频</a>
+        <a href="#wf-topics">专题企划</a>
+        <a href="#wf-creators">创作者</a>
+        <a href="#wf-wall">作品墙</a>
+        <a href="#wf-news">企业动态</a>
+        <a href="#wf-faq">帮助中心</a>
+        <a href="#wf-contact">联系我们</a>
+      </nav>
+      <div class="wf-search" id="wf-search">
+        <input type="text" id="wf-search-input" placeholder="搜索福利攻略 / 创作者" aria-label="站内搜索">
+        <button type="button" id="wf-search-btn" aria-label="执行搜索">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 L21 21"/>
+          </svg>
+        </button>
+      </div>
+      <button class="wf-burger" id="wf-burger" aria-label="展开导航菜单" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+    <div class="wf-search-feedback" aria-live="polite">
+      <span id="wf-search-msg"></span>
+    </div>
+  </header>
+</div>
+
+<main id="wf-top">
+
+  <!-- 首屏 -->
+  <section class="wf-hero">
+    <div class="wf-container">
+      <div class="wf-hero-grid">
+        <div>
+          <div class="wf-badge-row">
+            <span class="wf-badge wf-badge--hot">官方网站</span>
+            <span class="wf-badge">原创高清</span>
+            <span class="wf-badge">持续运营</span>
+            <span class="wf-badge">用户首选</span>
+          </div>
+          <h1 class="wf-h1">360福利社<em>，</em><br>把每一份小确幸拍成影像</h1>
+          <p class="wf-hero-lead">一个专注生活福利与实用攻略的品牌视频社区，用真实镜头记录值得分享的日常。</p>
+          <p class="wf-hero-intro">
+            作为深耕生活影像垂直领域的原创视频品牌，360福利社官方网站致力于为创作者与用户搭建高品质内容生态。我们以正版高清影像为载体，持续输出福利攻略、深度测评、人物访谈与城市探索等精品内容，让每一次发现都被认真对待。
+          </p>
+          <div class="wf-hero-actions">
+            <a class="wf-btn wf-btn--primary" href="#wf-videos">
+              浏览精品内容
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#fff" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </a>
+            <button class="wf-btn wf-btn--ghost" type="button" data-wf-modal="submit">投稿入口</button>
+            <button class="wf-btn wf-btn--ghost" type="button" data-wf-modal="share">分享本页</button>
+          </div>
+          <div class="wf-hero-stats">
+            <div>
+              <div class="wf-stat-num" data-wf-count="2860">0</div>
+              <div class="wf-stat-label">原创视频作品</div>
+            </div>
+            <div>
+              <div class="wf-stat-num" data-wf-count="41">0</div>
+              <div class="wf-stat-label">签约创作者（位）</div>
+            </div>
+            <div>
+              <div class="wf-stat-num" data-wf-count="128">0</div>
+              <div class="wf-stat-label">万社区用户</div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-hero-visual">
+          <div class="wf-hero-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 550'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a5c'/%3E%3Cstop offset='.55' stop-color='%23ffb347'/%3E%3Cstop offset='1' stop-color='%23ffe3b8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='550' fill='url(%23g1)'/%3E%3Ccircle cx='620' cy='120' r='150' fill='%23fff' opacity='.18'/%3E%3Ccircle cx='150' cy='460' r='190' fill='%23e04f22' opacity='.16'/%3E%3Crect x='90' y='150' width='250' height='170' rx='16' fill='%23fff' opacity='.92'/%3E%3Crect x='112' y='176' width='130' height='12' rx='6' fill='%23ffb347'/%3E%3Crect x='112' y='204' width='190' height='8' rx='4' fill='%23f0ddcc'/%3E%3Crect x='112' y='224' width='160' height='8' rx='4' fill='%23f0ddcc'/%3E%3Crect x='112' y='252' width='80' height='24' rx='12' fill='%23ff6a3d'/%3E%3Cpath d='M400 420 q40 -90 100 -70 q55 18 60 80' stroke='%23fff' stroke-width='8' fill='none' opacity='.75' stroke-linecap='round'/%3E%3Ccircle cx='400' cy='420' r='14' fill='%23fff' opacity='.9'/%3E%3Ccircle cx='560' cy='430' r='14' fill='%23fff' opacity='.9'/%3E%3Crect x='470' y='250' width='220' height='140' rx='14' fill='%23fff' opacity='.9'/%3E%3Cpath d='M560 292 l34 20 -34 20 z' fill='%23ff6a3d'/%3E%3C/svg%3E" alt="360福利社品牌形象主视觉：橙色渐变背景与内容卡片图形">
+            <div class="wf-cover-gradient"></div>
+            <button class="wf-play-btn" type="button" aria-label="播放品牌形象片">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="wf-hero-cover-text">
+              <h3>「小确幸计划」品牌形象片</h3>
+              <p>4K 原创 · 时长 03:42 · 官方发布</p>
+            </div>
+          </div>
+          <div class="wf-hero-float wf-hero-float--a">
+            <span class="wf-dot">🎁</span>
+            <span>本周福利攻略<br><b>+38</b> 条更新</span>
+          </div>
+          <div class="wf-hero-float wf-hero-float--b">
+            <span class="wf-dot">🎬</span>
+            <span>社区好评率<br><b>98.6%</b> 口碑</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点视频 -->
+  <section class="wf-section" id="wf-focus">
+    <div class="wf-container">
+      <div class="wf-sec-head">
+        <div>
+          <span class="wf-sec-eyebrow">FOCUS 焦点视频</span>
+          <h2 class="wf-sec-title">本周焦点：值得反复观看的六部影像</h2>
+          <p class="wf-sec-desc">由编辑部与社区共同推荐，从福利攻略到人物故事，每一帧都来自真实生活现场。</p>
+        </div>
+        <a class="wf-link-arrow" href="#wf-videos">进入视频焦点区 →</a>
+      </div>
+      <div class="wf-focus-grid">
+        <article class="wf-focus-main">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232c2320'/%3E%3Cstop offset='.5' stop-color='%23583a2c'/%3E%3Cstop offset='1' stop-color='%23ff8a5c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23f1)'/%3E%3Ccircle cx='640' cy='150' r='120' fill='%23ffb347' opacity='.4'/%3E%3Ccircle cx='640' cy='150' r='60' fill='%23ffe3b8' opacity='.55'/%3E%3Cpath d='M0 470 L220 330 L420 460 L610 350 L800 470 L800 600 L0 600 Z' fill='%23e04f22' opacity='.45'/%3E%3Crect x='90' y='110' width='300' height='16' rx='8' fill='%23fff' opacity='.85'/%3E%3Crect x='90' y='146' width='210' height='10' rx='5' fill='%23fff' opacity='.4'/%3E%3Crect x='90' y='174' width='250' height='10' rx='5' fill='%23fff' opacity='.3'/%3E%3Cpath d='M400 300 l70 40 -70 40 z' fill='%23fff' opacity='.9'/%3E%3C/svg%3E" alt="焦点视频：城市福利地图第一站老街市集实拍">
+          <div class="wf-cover-gradient"></div>
+          <div class="wf-focus-main-body">
+            <div class="wf-chip-row">
+              <span class="wf-chip wf-chip--solid">编辑精选</span>
+              <span class="wf-chip">城市探索</span>
+              <span class="wf-chip">4K 原创</span>
+            </div>
+            <h3>城市福利地图 · 第一站：老街市集里的十二种生活方式</h3>
+            <p>我们跟着三位本地创作者，用一整天走完这座城市最接地气的市集。摊主的手艺、老字号的坚持、年轻人的新摊位，都在这期影像里。</p>
+            <div class="wf-card-meta">
+              <span>时长 18:26</span><span class="wf-meta-sep">·</span>
+              <span>作者 阿橙的日常</span><span class="wf-meta-sep">·</span>
+              <span>2026-11-16 发布</span>
+            </div>
+          </div>
+        </article>
+        <div class="wf-focus-side">
+          <article class="wf-focus-item">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Cdefs%3E%3ClinearGradient id='f2' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23fdf7f0'/%3E%3Cstop offset='1' stop-color='%23ffd9c9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23f2)'/%3E%3Crect x='60' y='90' width='300' height='220' rx='18' fill='%23ff6a3d' opacity='.85'/%3E%3Crect x='90' y='130' width='180' height='12' rx='6' fill='%23fff'/%3E%3Crect x='90' y='160' width='130' height='9' rx='4' fill='%23ffe3b8'/%3E%3Crect x='90' y='230' width='90' height='28' rx='14' fill='%23fff'/%3E%3Ccircle cx='560' cy='200' r='120' fill='%23ffb347' opacity='.5'/%3E%3Ccircle cx='560' cy='200' r='66' fill='%23fff' opacity='.8'/%3E%3Cpath d='M540 176 l40 24 -40 24 z' fill='%23e04f22'/%3E%3C/svg%3E" alt="焦点视频：新手也能学会的省钱攻略图文封面">
+            <div class="wf-cover-gradient"></div>
+            <div class="wf-focus-item-body">
+              <div class="wf-chip-row"><span class="wf-chip">实用技巧</span></div>
+              <h3>一年省下三千块：普通人的福利攻略实操手册</h3>
+              <span>时长 12:08 · 作者 省钱研究员林小满</span>
+            </div>
+          </article>
+          <article class="wf-focus-item">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Cdefs%3E%3ClinearGradient id='f3' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2334626b'/%3E%3Cstop offset='1' stop-color='%2388c9c4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23f3)'/%3E%3Ccircle cx='200' cy='110' r='90' fill='%23fff' opacity='.22'/%3E%3Cpath d='M0 320 Q200 220 400 300 T800 280 L800 400 L0 400 Z' fill='%232c5259' opacity='.7'/%3E%3Crect x='480' y='90' width='220' height='150' rx='16' fill='%23fff' opacity='.9'/%3E%3Crect x='506' y='120' width='120' height='10' rx='5' fill='%233fc1c9'/%3E%3Crect x='506' y='144' width='170' height='8' rx='4' fill='%23d7ecec'/%3E%3Crect x='506' y='166' width='140' height='8' rx='4' fill='%23d7ecec'/%3E%3C/svg%3E" alt="焦点视频：年轻创作者访谈现场封面图">
+            <div class="wf-cover-gradient"></div>
+            <div class="wf-focus-item-body">
+              <div class="wf-chip-row"><span class="wf-chip">人物访谈</span></div>
+              <h3>对话三位 95 后创作者：把兴趣做成长期事业</h3>
+              <span>时长 21:35 · 作者 福利社编辑部</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 深度解析 -->
+  <section class="wf-section wf-section--tint" id="wf-about">
+    <div class="wf-container">
+      <div class="wf-article-wrap">
+        <article class="wf-article">
+          <span class="wf-sec-eyebrow">BRAND STORY 品牌深度解析</span>
+          <h2>360福利社：一个关于“把好处分享出去”的影像品牌</h2>
+          <p class="wf-article-sub">品牌故事 · 内容生态 · 创作者计划</p>
+
+          <p>360福利社是一个以“福利”为核心命题的生活影像品牌。我们理解的福利，并不只是优惠券和折扣码，而是那些能够在日常里稳定提升幸福感的小方法：一条省时省力的家务技巧，一次周末就能成行的短途路线，一顿成本不高却足够温暖的晚餐，或者一段陪孩子认真度过的二十分钟。这些细碎的、可复制的、真实发生过的经验，构成了360福利社全部内容的底色。</p>
+
+          <h3>从一条攻略视频开始的品牌起点</h3>
+          <p>品牌最早的内容，是一支只有四分钟的短片：一位普通上班族用镜头记录自己如何在下班后两小时内完成一周备菜。没有复杂运镜，也没有剧本，画面里甚至能看到厨房台面上的水渍。但这条视频在社区里获得了远超预期的反馈——大量用户在评论区补充自己的做法，有人分享更省钱的采购路线，有人贴出自家冰箱的整理方案。那一刻我们意识到，<strong>福利的本质是经验的可传递性</strong>，而视频是把这种传递做得最直观的媒介。</p>
+          <p>此后，360福利社逐步确立了三条内容主线：其一是<strong>实用技巧与福利攻略</strong>，强调可执行、可验证；其二是<strong>人物访谈与创作者故事</strong>，关注内容背后真实的人；其三是<strong>城市探索与在地文化</strong>，把镜头对准不同城市里具体的生活现场。三条主线并行，让品牌既保持了工具性，也保有温度。</p>
+
+          <h3>内容生态：让专业与真实同时存在</h3>
+          <p>作为持续运营的视频品牌，我们在内容生产上坚持“双轨制”。一轨是官方编辑部出品的精品内容，从选题、脚本、拍摄到后期都遵循严格的品控流程，画面采用高清规格，信息经过交叉核实；另一轨是社区创作者的原创投稿，我们提供选题建议、拍摄清单与剪辑思路，但不干预表达风格。正版与原创是平台的底线，所有上线内容均经过授权确认与基础审核。</p>
+          <p>这种结构带来的好处是：用户既能看到专业度较高的深度测评与行业观察，也能看到带着生活毛边的真实记录。一个关于空气炸锅的测评，可能同时存在编辑部的实验室数据版和一位宝妈的厨房实测版，两者互相补充，反而让信息更完整。这正是内容生态应有的样子——<strong>多元、包容，并且彼此支撑</strong>。</p>
+
+          <h3>创作者：品牌最重要的资产</h3>
+          <p>目前360福利社已签约与深度合作的创作者超过四十位，覆盖美食烹饪、家居收纳、亲子成长、健康运动、旅行见闻、艺术美学等多个垂直领域。我们对创作者的支持不止于流量分发，更包括稳定的选题机制、季度创作激励、以及每年两届的创作者挑战赛。挑战赛设置公开的报名通道与评审流程，作品由编辑部与社区用户共同投票产生，确保过程透明。</p>
+          <p>我们尤其重视新人创作者的成长路径。新人榜每两周更新一次，榜单作品会获得首页推荐位与额外的制作补贴。很多现在拥有稳定观众的作者，最初都是从一条画质并不完美的投稿开始的。<strong>陪伴成长</strong>不只是一句口号，而是写进运营规则里的动作。</p>
+
+          <h3>用户至上：把反馈变成产品或内容</h3>
+          <p>社区的每一条评价我们都会进入处理流程。有人指出某条攻略里的价格信息过时，编辑部会在四十八小时内复核并更新；有人希望增加“低成本亲子活动”系列，一个月后这个系列就上线了第一期。我们相信，<strong>值得信赖的口碑不是宣传出来的，而是一条一条内容积累出来的</strong>。截至目前，社区好评率长期保持在 98% 以上，这个数字对我们而言既是肯定，也是压力。</p>
+          <p>在商业化上，360福利社保持克制。合作内容会明确标注来源，测评类视频不接受品牌方对结论的干预，这是我们在早期就确立的规则，也会长期坚持下去。我们更愿意把商业合作理解为“共同为用户提供真实有用的信息”，而不是简单的曝光交换。</p>
+
+          <h3>面向未来：做一个长期主义的影像品牌</h3>
+          <p>视频行业变化很快，但有些东西不会变：人们对真实经验的需求，对实用信息的渴望，对美好生活的向往。360福利社希望成为这样一个存在——当你需要一条靠谱的攻略、一段安静的陪伴、或者一次对他人生活的理解时，会想到打开这个网站。我们会继续深耕生活影像这一垂直领域，持续产出精品内容，维护健康的社区氛围，并在社会责任上做力所能及的事：支持公益影像记录、为乡村创作者提供设备与培训、把优质的亲子内容免费开放给更多家庭。</p>
+          <p>这就是360福利社。一个由无数个具体的人、具体的经验、具体的镜头组成的品牌。它不宏大，但它真实；它不喧哗，但它温暖。我们相信，把每一份小确幸认真拍下来、讲清楚，本身就是一件有力量的事。</p>
+        </article>
+
+        <aside>
+          <div class="wf-side-card">
+            <h4>本周热度榜</h4>
+            <ul class="wf-side-list">
+              <li><span class="wf-side-rank wf-side-rank--top">1</span><span>老街市集十二种生活方式</span></li>
+              <li><span class="wf-side-rank wf-side-rank--top">2</span><span>普通人省钱实操手册</span></li>
+              <li><span class="wf-side-rank wf-side-rank--top">3</span><span>对话三位 95 后创作者</span></li>
+              <li><span class="wf-side-rank">4</span><span>小户型收纳的七个盲区</span></li>
+              <li><span class="wf-side-rank">5</span><span>周末两小时亲子活动清单</span></li>
+            </ul>
+          </div>
+          <div class="wf-side-card">
+            <h4>品牌关键词</h4>
+            <div class="wf-tag-cloud">
+              <a href="#wf-topics">福利攻略</a>
+              <a href="#wf-videos">实用技巧</a>
+              <a href="#wf-creators">创作者</a>
+              <a href="#wf-wall">城市探索</a>
+              <a href="#wf-topics">人物访谈</a>
+              <a href="#wf-news">企业动态</a>
+              <a href="#wf-videos">深度测评</a>
+              <a href="#wf-contact">投稿报名</a>
+            </div>
+          </div>
+          <div class="wf-side-card" style="background:linear-gradient(150deg,#ff6a3d,#ffb347);color:#fff">
+            <h4 style="color:#fff">创作者挑战赛</h4>
+            <p style="font-size:13px;color:#ffe9dd;line-height:1.75">2026 冬季场报名进行中，主题为「我的生活福利清单」，欢迎上传你的原创作品。</p>
+            <button class="wf-btn wf-btn--ghost" type="button" style="margin-top:14px;width:100%;justify-content:center;color:#e04f22" data-wf-modal="submit">立即报名</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门视频流 -->
+  <section class="wf-section" id="wf-videos">
+    <div class="wf-container">
+      <div class="wf-sec-head">
+        <div>
+          <span class="wf-sec-eyebrow">COMMUNITY 热门视频流</span>
+          <h2 class="wf-sec-title">社区正在看的内容</h2>
+          <p class="wf-sec-desc">按题材筛选，查看你感兴趣的福利攻略与生活影像。所有内容均为原创或已获正版授权。</p>
+        </div>
+      </div>
+      <div class="wf-filter-row" id="wf-filter-row" role="group" aria-label="视频题材筛选">
+        <button class="wf-filter-btn is-active" type="button" data-filter="all">全部</button>
+        <button class="wf-filter-btn" type="button" data-filter="攻略">福利攻略</button>
+        <button class="wf-filter-btn" type="button" data-filter="家居">家居收纳</button>
+        <button class="wf-filter-btn" type="button" data-filter="美食">美食烹饪</button>
+        <button class="wf-filter-btn" type="button" data-filter="亲子">亲子成长</button>
+        <button class="wf-filter-btn" type="button" data-filter="访谈">人物访谈</button>
+      </div>
+      <div class="wf-video-grid" id="wf-video-grid">
+
+        <article class="wf-video-card" data-tags="攻略">
+          <div class="wf-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='v1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ffb347'/%3E%3Cstop offset='1' stop-color='%23ff6a3d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23v1)'/%3E%3Ccircle cx='640' cy='90' r='100' fill='%23fff' opacity='.2'/%3E%3Crect x='60' y='120' width='280' height='180' rx='14' fill='%23fff' opacity='.92'/%3E%3Crect x='88' y='150' width='150' height='12' rx='6' fill='%23ff6a3d'/%3E%3Crect x='88' y='178' width='200' height='8' rx='4' fill='%23f0ddcc'/%3E%3Crect x='88' y='198' width='170' height='8' rx='4' fill='%23f0ddcc'/%3E%3Crect x='88' y='232' width='72' height='26' rx='13' fill='%23ffb347'/%3E%3Cpath d='M430 300 l60 -40 60 40 -60 40 z' fill='%23fff' opacity='.6'/%3E%3C/svg%3E" alt="视频封面：超市采购省钱路线攻略图示">
+            <div class="wf-cover-gradient"></div>
+            <span class="wf-cover-tag">福利攻略</span>
+            <span class="wf-cover-duration">10:24</span>
+            <span class="wf-cover-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="wf-video-body">
+            <h3>同样的采购清单，怎么做到便宜三成？</h3>
+            <p class="wf-video-desc">我们连续两周记录了同一份家庭采购清单在三家超市的实际花费，差价出现在哪些环节，一目了然。</p>
+            <div class="wf-video-tags"><span>省钱</span><span>实操</span><span>家庭</span></div>
+            <div class="wf-video-foot">
+              <div class="wf-author-mini"><span class="wf-avatar">林</span><span>省钱研究员林小满</span></div>
+              <div class="wf-ops">
+                <button class="wf-op" type="button" data-wf-like aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.6 12 20 12 20z"/></svg>
+                  <span class="wf-like-num">326</span>
+                </button>
+                <button class="wf-op" type="button" data-wf-save aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="wf-video-card" data-tags="家居">
+          <div class="wf-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='v2' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23dfe9e4'/%3E%3Cstop offset='1' stop-color='%23a8c9b8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23v2)'/%3E%3Crect x='70' y='80' width='160' height='290' rx='12' fill='%23fff' opacity='.85'/%3E%3Crect x='100' y='110' width='100' height='10' rx='5' fill='%237aa48e'/%3E%3Crect x='100' y='140' width='80' height='8' rx='4' fill='%23cfe0d6'/%3E%3Crect x='270' y='130' width='190' height='240' rx='12' fill='%23fff' opacity='.7'/%3E%3Crect x='300' y='160' width='130' height='9' rx='4' fill='%237aa48e'/%3E%3Ccircle cx='600' cy='220' r='100' fill='%23fff' opacity='.4'/%3E%3Crect x='540' y='170' width='120' height='100' rx='10' fill='%237aa48e' opacity='.6'/%3E%3C/svg%3E" alt="视频封面：小户型衣柜分区收纳示意图">
+            <div class="wf-cover-gradient"></div>
+            <span class="wf-cover-tag">家居收纳</span>
+            <span class="wf-cover-duration">14:52</span>
+            <span class="wf-cover-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="wf-video-body">
+            <h3>小户型衣柜的七个收纳盲区，你中了几个</h3>
+            <p class="wf-video-desc">从挂衣区高度到抽屉分隔，逐条拆解二十平米卧室的整理逻辑，附可打印的分区清单。</p>
+            <div class="wf-video-tags"><span>收纳</span><span>小户型</span><span>干货</span></div>
+            <div class="wf-video-foot">
+              <div class="wf-author-mini"><span class="wf-avatar wf-avatar--c">顾</span><span>顾言整理日记</span></div>
+              <div class="wf-ops">
+                <button class="wf-op" type="button" data-wf-like aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.6 12 20 12 20z"/></svg>
+                  <span class="wf-like-num">512</span>
+                </button>
+                <button class="wf-op" type="button" data-wf-save aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="wf-video-card" data-tags="美食">
+          <div class="wf-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3CradialGradient id='v3' cx='.5' cy='.45' r='.75'%3E%3Cstop offset='0' stop-color='%23ffe3b8'/%3E%3Cstop offset='1' stop-color='%23e8a05a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23v3)'/%3E%3Ccircle cx='400' cy='230' r='140' fill='%23fff' opacity='.75'/%3E%3Ccircle cx='400' cy='230' r='105' fill='%23e04f22' opacity='.45'/%3E%3Ccircle cx='400' cy='230' r='70' fill='%23ffb347' opacity='.85'/%3E%3Cpath d='M300 120 q100 -50 200 0' stroke='%23fff' stroke-width='8' fill='none' opacity='.7' stroke-linecap='round'/%3E%3Ccircle cx='180' cy='340' r='40' fill='%23fff' opacity='.45'/%3E%3Ccircle cx='630' cy='120' r='30' fill='%23fff' opacity='.5'/%3E%3C/svg%3E" alt="视频封面：一人食快手晚餐俯拍画面">
+            <div class="wf-cover-gradient"></div>
+            <span class="wf-cover-tag">美食烹饪</span>
+            <span class="wf-cover-duration">08:16</span>
+            <span class="wf-cover-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="wf-video-body">
+            <h3>二十块钱的一人食晚餐，连做五天不重样</h3>
+            <p class="wf-video-desc">预算有限也能吃好。五位社区作者各贡献一道快手菜，附采购清单与备菜顺序。</p>
+            <div class="wf-video-tags"><span>一人食</span><span>快手菜</span><span>预算</span></div>
+            <div class="wf-video-foot">
+              <div class="wf-author-mini"><span class="wf-avatar wf-avatar--d">胖</span><span>胖丁的厨房</span></div>
+              <div class="wf-ops">
+                <button class="wf-op" type="button" data-wf-like aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.6 12 20 12 20z"/></svg>
+                  <span class="wf-like-num">789</span>
+                </button>
+                <button class="wf-op" type="button" data-wf-save aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="wf-video-card" data-tags="亲子">
+          <div class="wf-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='v4' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ffd9c9'/%3E%3Cstop offset='1' stop-color='%23ffb347'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23v4)'/%3E%3Ccircle cx='230' cy='200' r='80' fill='%23fff' opacity='.8'/%3E%3Ccircle cx='230' cy='180' r='26' fill='%23ff6a3d' opacity='.7'/%3E%3Ccircle cx='520' cy='230' r='60' fill='%23fff' opacity='.65'/%3E%3Crect x='380' y='110' width='260' height='150' rx='14' fill='%23fff' opacity='.75'/%3E%3Crect x='410' y='140' width='140' height='10' rx='5' fill='%23e04f22'/%3E%3Crect x='410' y='166' width='190' height='8' rx='4' fill='%23ffd9c9'/%3E%3Cpath d='M0 400 Q200 330 400 380 T800 360 L800 450 L0 450 Z' fill='%23e04f22' opacity='.3'/%3E%3C/svg%3E" alt="视频封面：亲子户外活动手绘风格画面">
+            <div class="wf-cover-gradient"></div>
+            <span class="wf-cover-tag">亲子成长</span>
+            <span class="wf-cover-duration">11:40</span>
+            <span class="wf-cover-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="wf-video-body">
+            <h3>周末两小时，带孩子完成五件有成就感的小事</h3>
+            <p class="wf-video-desc">不需要远行，也不需要复杂道具。五组家庭实测的低成本亲子活动，附安全提示与材料清单。</p>
+            <div class="wf-video-tags"><span>亲子</span><span>周末</span><span>低成本</span></div>
+            <div class="wf-video-foot">
+              <div class="wf-author-mini"><span class="wf-avatar wf-avatar--a">周</span><span>周末妈妈周周</span></div>
+              <div class="wf-ops">
+                <button class="wf-op" type="button" data-wf-like aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.6 12 20 12 20z"/></svg>
+                  <span class="wf-like-num">443</span>
+                </button>
+                <button class="wf-op" type="button" data-wf-save aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="wf-video-card" data-tags="访谈">
+          <div class="wf-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='v5' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23583a2c'/%3E%3Cstop offset='1' stop-color='%23b9795a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23v5)'/%3E%3Ccircle cx='250' cy='190' r='90' fill='%23ffb347' opacity='.45'/%3E%3Ccircle cx='250' cy='190' r='46' fill='%23ffe3b8' opacity='.7'/%3E%3Crect x='420' y='110' width='280' height='60' rx='10' fill='%23fff' opacity='.2'/%3E%3Crect x='420' y='190' width='240' height='60' rx='10' fill='%23fff' opacity='.14'/%3E%3Crect x='420' y='270' width='190' height='60' rx='10' fill='%23fff' opacity='.1'/%3E%3C/svg%3E" alt="视频封面：创作者访谈现场暖色调画面">
+            <div class="wf-cover-gradient"></div>
+            <span class="wf-cover-tag">人物访谈</span>
+            <span class="wf-cover-duration">23:05</span>
+            <span class="wf-cover-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="wf-video-body">
+            <h3>从零到十万订阅：一位手作作者的四年</h3>
+            <p class="wf-video-desc">她用了四年时间，把阳台改造成工作室。这期访谈聊创作节奏、收入结构与如何应对低谷。</p>
+            <div class="wf-video-tags"><span>手作</span><span>成长</span><span>幕后</span></div>
+            <div class="wf-video-foot">
+              <div class="wf-author-mini"><span class="wf-avatar wf-avatar--b">编</span><span>福利社编辑部</span></div>
+              <div class="wf-ops">
+                <button class="wf-op" type="button" data-wf-like aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.6 12 20 12 20z"/></svg>
+                  <span class="wf-like-num">604</span>
+                </button>
+                <button class="wf-op" type="button" data-wf-save aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="wf-video-card" data-tags="攻略">
+          <div class="wf-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='v6' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233fc1c9'/%3E%3Cstop offset='1' stop-color='%235b8def'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23v6)'/%3E%3Ccircle cx='640' cy='110' r='90' fill='%23fff' opacity='.22'/%3E%3Crect x='80' y='140' width='230' height='150' rx='12' fill='%23fff' opacity='.9'/%3E%3Crect x='106' y='170' width='120' height='10' rx='5' fill='%233fc1c9'/%3E%3Crect x='106' y='196' width='170' height='8' rx='4' fill='%23d7ecec'/%3E%3Crect x='106' y='220' width='140' height='8' rx='4' fill='%23d7ecec'/%3E%3Cpath d='M420 260 l50 -30 50 30 -50 30 z' fill='%23fff' opacity='.55'/%3E%3Cpath d='M520 300 l40 -24 40 24 -40 24 z' fill='%23fff' opacity='.35'/%3E%3C/svg%3E" alt="视频封面：会员权益对比表格蓝色调图">
+            <div class="wf-cover-gradient"></div>
+            <span class="wf-cover-tag">福利攻略</span>
+            <span class="wf-cover-duration">09:38</span>
+            <span class="wf-cover-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="wf-video-body">
+            <h3>六张会员卡横向测评：哪些真的值得办</h3>
+            <p class="wf-video-desc">对比价格、使用门槛与实际频次，把“看起来便宜”和“真的省钱”区分开，附决策表。</p>
+            <div class="wf-video-tags"><span>测评</span><span>会员</span><span>理性消费</span></div>
+            <div class="wf-video-foot">
+              <div class="wf-author-mini"><span class="wf-avatar wf-avatar--e">评</span><span>测评组小柯</span></div>
+              <div class="wf-ops">
+                <button class="wf-op" type="button" data-wf-like aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.6 12 20 12 20z"/></svg>
+                  <span class="wf-like-num">281</span>
+                </button>
+                <button class="wf-op" type="button" data-wf-save aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="wf-section wf-section--tint" id="wf-topics">
+    <div class="wf-container">
+      <div class="wf-sec-head">
+        <div>
+          <span class="wf-sec-eyebrow">SERIES 专题企划</span>
+          <h2 class="wf-sec-title">正在更新的三个长期企划</h2>
+          <p class="wf-sec-desc">长期跟踪、持续更新的深度专题，把碎片化的经验整理成可检索的知识。</p>
+        </div>
+        <a class="wf-link-arrow" href="#wf-news">查看全部专题 →</a>
+      </div>
+      <div class="wf-topic-grid">
+        <article class="wf-topic-card">
+          <div class="wf-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='t1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a5c'/%3E%3Cstop offset='1' stop-color='%23ffd9c9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23t1)'/%3E%3Cpath d='M0 330 Q160 250 340 320 T800 300 L800 450 L0 450 Z' fill='%23e04f22' opacity='.35'/%3E%3Ccircle cx='620' cy='120' r='80' fill='%23fff' opacity='.5'/%3E%3Crect x='80' y='100' width='200' height='120' rx='12' fill='%23fff' opacity='.85'/%3E%3Crect x='106' y='130' width='110' height='10' rx='5' fill='%23e04f22'/%3E%3Crect x='106' y='154' width='150' height='8' rx='4' fill='%23ffd9c9'/%3E%3C/svg%3E" alt="专题封面：城市福利地图系列橙色调视觉">
+            <div class="wf-cover-gradient"></div>
+          </div>
+          <div class="wf-topic-body">
+            <span class="wf-topic-status"><i></i>更新中 · 第 12 期</span>
+            <h3>城市福利地图</h3>
+            <p>每期走进一座城市，拜访当地创作者，用镜头记录市集、老店与社区生活，整理成可执行的周末出行路线。</p>
+            <div class="wf-topic-foot">
+              <span>共 12 期 · 4K 原创</span>
+              <a class="wf-link-arrow" href="#wf-videos">进入专题</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wf-topic-card">
+          <div class="wf-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='t2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23a8c9b8'/%3E%3Cstop offset='1' stop-color='%23dfe9e4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23t2)'/%3E%3Crect x='120' y='90' width='180' height='260' rx='12' fill='%23fff' opacity='.85'/%3E%3Crect x='150' y='120' width='110' height='10' rx='5' fill='%237aa48e'/%3E%3Crect x='150' y='146' width='80' height='8' rx='4' fill='%23cfe0d6'/%3E%3Crect x='340' y='130' width='180' height='220' rx='12' fill='%23fff' opacity='.7'/%3E%3Crect x='372' y='160' width='100' height='9' rx='4' fill='%237aa48e'/%3E%3Ccircle cx='620' cy='240' r='80' fill='%237aa48e' opacity='.35'/%3E%3C/svg%3E" alt="专题封面：家庭收纳实验室绿色简约视觉">
+            <div class="wf-cover-gradient"></div>
+          </div>
+          <div class="wf-topic-body">
+            <span class="wf-topic-status"><i></i>更新中 · 第 8 期</span>
+            <h3>家庭收纳实验室</h3>
+            <p>用实测说话：同一空间、不同收纳方案的成本与效果对比，附尺寸表与购买清单，拒绝无效整理。</p>
+            <div class="wf-topic-foot">
+              <span>共 8 期 · 深度测评</span>
+              <a class="wf-link-arrow" href="#wf-videos">进入专题</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="wf-topic-card">
+          <div class="wf-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='t3' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23583a2c'/%3E%3Cstop offset='1' stop-color='%23b9795a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23t3)'/%3E%3Ccircle cx='400' cy='200' r='110' fill='%23ffb347' opacity='.35'/%3E%3Ccircle cx='400' cy='200' r='56' fill='%23ffe3b8' opacity='.55'/%3E%3Crect x='90' y='90' width='160' height='12' rx='6' fill='%23fff' opacity='.5'/%3E%3Crect x='90' y='120' width='220' height='9' rx='4' fill='%23fff' opacity='.28'/%3E%3Crect x='90' y='340' width='180' height='9' rx='4' fill='%23fff' opacity='.28'/%3E%3C/svg%3E" alt="专题封面：创作者幕后访谈深棕色调视觉">
+            <div class="wf-cover-gradient"></div>
+          </div>
+          <div class="wf-topic-body">
+            <span class="wf-topic-status"><i></i>更新中 · 第 5 期</span>
+            <h3>创作者幕后</h3>
+            <p>不谈数据，只聊过程。每期追问一位创作者：选题从哪里来，脚本怎么改，遇到瓶颈怎么办。</p>
+            <div class="wf-topic-foot">
+              <span>共 5 期 · 人物访谈</span>
+              <a class="wf-link-arrow" href="#wf-creators">进入专题</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="wf-section" id="wf-creators">
+    <div class="wf-container">
+      <div class="wf-sec-head">
+        <div>
+          <span class="wf-sec-eyebrow">CREATORS 创作者矩阵</span>
+          <h2 class="wf-sec-title">内容生态里的四张面孔</h2>
+          <p class="wf-sec-desc">他们来自不同城市与行业，却共享同一种认真：把有用的东西讲清楚。</p>
+        </div>
+        <a class="wf-link-arrow" href="#wf-contact">申请成为创作者 →</a>
+      </div>
+      <div class="wf-author-grid">
+        <article class="wf-author-card">
+          <div class="wf-author-big">橙</div>
+          <h3>阿橙的日常</h3>
+          <p class="wf-author-field">城市探索 · 在地文化</p>
+          <p class="wf-author-bio">常驻南方老城区，擅长把一条街拍成一部短片。相信城市最动人的部分藏在菜市场里。</p>
+          <div class="wf-author-stats">
+            <span><b>142</b>作品</span>
+            <span><b>8.6万</b>关注</span>
+          </div>
+          <button class="wf-author-btn" type="button" data-wf-author="阿橙的日常|城市探索 · 在地文化|常驻南方老城区，擅长把一条街拍成一部短片。代表系列《城市福利地图》，共 12 期，累计播放 460 万。">查看主页</button>
+        </article>
+
+        <article class="wf-author-card">
+          <div class="wf-author-big wf-author-big--2">顾</div>
+          <h3>顾言整理日记</h3>
+          <p class="wf-author-field">家居收纳 · 空间规划</p>
+          <p class="wf-author-bio">十年整理师，服务过两百多个家庭。视频里最常见的一句话是“先量尺寸，再买东西”。</p>
+          <div class="wf-author-stats">
+            <span><b>96</b>作品</span>
+            <span><b>6.2万</b>关注</span>
+          </div>
+          <button class="wf-author-btn" type="button" data-wf-author="顾言整理日记|家居收纳 · 空间规划|十年整理师，服务过两百多个家庭。主持《家庭收纳实验室》专题，主张用实测替代经验主义。">查看主页</button>
+        </article>
+
+        <article class="wf-author-card">
+          <div class="wf-author-big wf-author-big--3">满</div>
+          <h3>林小满不加班</h3>
+          <p class="wf-author-field">实用技巧 · 理性消费</p>
+          <p class="wf-author-bio">前财务从业者，现在专门研究普通人的省钱逻辑。所有攻略都附表格，可下载。</p>
+          <div class="wf-author-stats">
+            <span><b>118</b>作品</span>
+            <span><b>9.4万</b>关注</span>
+          </div>
+          <button class="wf-author-btn" type="button" data-wf-author="林小满不加班|实用技巧 · 理性消费|前财务从业者，专注研究普通人的省钱逻辑。代表作《一年省下三千块》系列，强调可验证、可复制。">查看主页</button>
+        </article>
+
+        <article class="wf-author-card">
+          <div class="wf-author-big wf-author-big--4">墨</div>
+          <h3>墨与手作</h3>
+          <p class="wf-author-field">手作 DIY · 创作幕后</p>
+          <p class="wf-author-bio">把自家阳台改成工作室的第四年。喜欢拍失败过程，因为那才是手作的真实部分。</p>
+          <div class="wf-author-stats">
+            <span><b>74</b>作品</span>
+            <span><b>5.1万</b>关注</span>
+          </div>
+          <button class="wf-author-btn" type="button" data-wf-author="墨与手作|手作 DIY · 创作幕后|把自家阳台改成工作室的第四年。内容以过程记录为主，主张“失败也值得被拍下来”。">查看主页</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品墙 -->
+  <section class="wf-section wf-section--tint" id="wf-wall">
+    <div class="wf-container">
+      <div class="wf-sec-head">
+        <div>
+          <span class="wf-sec-eyebrow">GALLERY 影像作品墙</span>
+          <h2 class="wf-sec-title">社区本周上传的九个瞬间</h2>
+          <p class="wf-sec-desc">来自不同城市的原创影像，记录具体的、可触摸的生活。所有作品均由作者授权展示。</p>
+        </div>
+        <a class="wf-link-arrow" href="#wf-contact">上传你的作品 →</a>
+      </div>
+      <div class="wf-wall">
+        <div class="wf-wall-item wf-wall-item--big">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='w1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff6a3d'/%3E%3Cstop offset='1' stop-color='%23ffb347'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23w1)'/%3E%3Ccircle cx='620' cy='140' r='110' fill='%23fff' opacity='.25'/%3E%3Cpath d='M0 440 Q220 340 440 420 T800 400 L800 600 L0 600 Z' fill='%23e04f22' opacity='.4'/%3E%3Crect x='100' y='140' width='250' height='150' rx='14' fill='%23fff' opacity='.85'/%3E%3Crect x='130' y='174' width='130' height='12' rx='6' fill='%23e04f22'/%3E%3Crect x='130' y='204' width='180' height='8' rx='4' fill='%23ffd9c9'/%3E%3Crect x='130' y='226' width='150' height='8' rx='4' fill='%23ffd9c9'/%3E%3C/svg%3E" alt="作品墙：清晨菜市场热气腾腾的早餐摊">
+          <span>清晨六点的早餐摊 · 阿橙的日常</span>
+        </div>
+        <div class="wf-wall-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='w2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23a8c9b8'/%3E%3Cstop offset='1' stop-color='%23dfe9e4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23w2)'/%3E%3Crect x='80' y='80' width='240' height='140' rx='10' fill='%23fff' opacity='.8'/%3E%3Crect x='104' y='110' width='120' height='9' rx='4' fill='%237aa48e'/%3E%3Crect x='104' y='132' width='160' height='7' rx='3' fill='%23cfe0d6'/%3E%3Crect x='80' y='250' width='150' height='80' rx='8' fill='%237aa48e' opacity='.5'/%3E%3C/svg%3E" alt="作品墙：整理前后的抽屉对比">
+          <span>抽屉分区改造 · 顾言整理日记</span>
+        </div>
+        <div class="wf-wall-item wf-wall-item--tall">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Cdefs%3E%3ClinearGradient id='w3' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffd9c9'/%3E%3Cstop offset='1' stop-color='%23e8a05a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='800' fill='url(%23w3)'/%3E%3Ccircle cx='200' cy='260' r='110' fill='%23fff' opacity='.7'/%3E%3Ccircle cx='200' cy='260' r='60' fill='%23ff6a3d' opacity='.55'/%3E%3Cpath d='M0 620 Q120 540 240 600 T400 580 L400 800 L0 800 Z' fill='%23e04f22' opacity='.35'/%3E%3Crect x='70' y='640' width='180' height='10' rx='5' fill='%23fff' opacity='.6'/%3E%3C/svg%3E" alt="作品墙：厨房里的一人食晚餐摆盘">
+          <span>一人食的仪式感 · 胖丁的厨房</span>
+        </div>
+        <div class="wf-wall-item wf-wall-item--wide">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Cdefs%3E%3ClinearGradient id='w4' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235b8def'/%3E%3Cstop offset='1' stop-color='%233fc1c9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23w4)'/%3E%3Ccircle cx='200' cy='120' r='80' fill='%23fff' opacity='.22'/%3E%3Cpath d='M0 300 Q200 220 400 290 T800 270 L800 400 L0 400 Z' fill='%232c5259' opacity='.6'/%3E%3Crect x='480' y='90' width='240' height='120' rx='12' fill='%23fff' opacity='.85'/%3E%3Crect x='510' y='120' width='150' height='10' rx='5' fill='%235b8def'/%3E%3Crect x='510' y='144' width='190' height='8' rx='4' fill='%23d7ecec'/%3E%3C/svg%3E" alt="作品墙：城市傍晚的骑行路线记录">
+          <span>傍晚骑行路线 · 测评组小柯</span>
+        </div>
+        <div class="wf-wall-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='w5' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%239b5de5'/%3E%3Cstop offset='1' stop-color='%23f15bb5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23w5)'/%3E%3Ccircle cx='200' cy='200' r='110' fill='%23fff' opacity='.22'/%3E%3Crect x='110' y='120' width='180' height='160' rx='12' fill='%23fff' opacity='.75'/%3E%3Crect x='136' y='150' width='110' height='10' rx='5' fill='%23f15bb5'/%3E%3Crect x='136' y='174' width='130' height='8' rx='4' fill='%23f3d7ec'/%3E%3C/svg%3E" alt="作品墙：手作陶瓷杯的烧制记录">
+          <span>第七次烧制终于成功 · 墨与手作</span>
+        </div>
+        <div class="wf-wall-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='w6' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ffb347'/%3E%3Cstop offset='1' stop-color='%23fdcb6e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23w6)'/%3E%3Crect x='60' y='90' width='280' height='220' rx='14' fill='%23fff' opacity='.78'/%3E%3Crect x='90' y='126' width='150' height='11' rx='5' fill='%23e17055'/%3E%3Crect x='90' y='154' width='200' height='8' rx='4' fill='%23ffe3b8'/%3E%3Ccircle cx='300' cy='270' r='36' fill='%23e17055' opacity='.6'/%3E%3C/svg%3E" alt="作品墙：亲子手工课完成的小作品">
+          <span>亲子手工下午 · 周末妈妈周周</span>
+        </div>
+        <div class="wf-wall-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='w7' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e04f22'/%3E%3Cstop offset='1' stop-color='%23ff8a5c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23w7)'/%3E%3Ccircle cx='140' cy='150' r='70' fill='%23fff' opacity='.25'/%3E%3Crect x='100' y='220' width='200' height='110' rx='10' fill='%23fff' opacity='.7'/%3E%3Crect x='126' y='246' width='120' height='9' rx='4' fill='%23e04f22'/%3E%3Crect x='126' y='270' width='150' height='7' rx='3' fill='%23ffd9c9'/%3E%3C/svg%3E" alt="作品墙：阳台工作室里的手作台">
+          <span>阳台改造第四年 · 墨与手作</span>
+        </div>
+        <div class="wf-wall-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='w8' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300b894'/%3E%3Cstop offset='1' stop-color='%2355efc4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23w8)'/%3E%3Ccircle cx='280' cy='120' r='80' fill='%23fff' opacity='.3'/%3E%3Cpath d='M0 280 Q100 220 200 270 T400 250 L400 400 L0 400 Z' fill='%23007a5f' opacity='.5'/%3E%3Crect x='70' y='90' width='160' height='100' rx='10' fill='%23fff' opacity='.8'/%3E%3Crect x='96' y='118' width='90' height='9' rx='4' fill='%2300b894'/%3E%3Crect x='96' y='140' width='120' height='7' rx='3' fill='%23c9f2e6'/%3E%3C/svg%3E" alt="作品墙：清晨公园里的慢跑记录">
+          <span>清晨慢跑五公里 · 阿橙的日常</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户评价 -->
+  <section class="wf-section" id="wf-reviews">
+    <div class="wf-container">
+      <div class="wf-sec-head">
+        <div>
+          <span class="wf-sec-eyebrow">VOICES 用户评价</span>
+          <h2 class="wf-sec-title">他们这样说这个社区</h2>
+          <p class="wf-sec-desc">评价来自社区真实用户，语气各异，但都指向同一件事：内容经得起检验。</p>
+        </div>
+      </div>
+      <div class="wf-review-grid">
+        <article class="wf-review-card">
+          <div class="wf-review-top">
+            <span class="wf-avatar wf-avatar--a">陈</span>
+            <div class="wf-review-user">陈女士<small>两个孩子的妈妈 · 关注 11 个月</small></div>
+            <span class="wf-review-stars">★★★★★</span>
+          </div>
+          <p class="wf-review-text">亲子那几期真的帮了大忙。周末不用再搜半天“带孩子去哪”，直接照着清单准备就行，材料都是家里现成的。最喜欢的是每个活动后面都写了可能的风险提示，能感觉到做内容的人是认真带过孩子的。</p>
+          <span class="wf-review-tag">亲子成长</span>
+        </article>
+
+        <article class="wf-review-card">
+          <div class="wf-review-top">
+            <span class="wf-avatar wf-avatar--c">老</span>
+            <div class="wf-review-user">老周不加班<small>程序员 · 关注 2 年</small></div>
+            <span class="wf-review-stars">★★★★★</span>
+          </div>
+          <p class="wf-review-text">省钱那几期我是拿笔记本来记的。最难得的是它不贩卖焦虑，也不推荐一堆用不上的东西，就是老老实实算账。有一期讲会员卡测评，结论是“有三张其实可以不办”，这种内容在别处很少见。</p>
+          <span class="wf-review-tag">实用技巧</span>
+        </article>
+
+        <article class="wf-review-card">
+          <div class="wf-review-top">
+            <span class="wf-avatar wf-avatar--b">小</span>
+            <div class="wf-review-user">小鹿在厦门<small>自由插画师 · 关注 8 个月</small></div>
+            <span class="wf-review-stars">★★★★☆</span>
+          </div>
+          <p class="wf-review-text">画面质感是我留下的原因。城市那几期拍得很克制，没有过度调色，也没有浮夸的镜头语言，就是我生活里能看到的街景。希望以后能多一些南方小城的内容。</p>
+          <span class="wf-review-tag">城市探索</span>
+        </article>
+
+        <article class="wf-review-card">
+          <div class="wf-review-top">
+            <span class="wf-avatar wf-avatar--d">阿</span>
+            <div class="wf-review-user">阿福的猫<small>新晋创作者 · 投稿 3 次</small></div>
+            <span class="wf-review-stars">★★★★★</span>
+          </div>
+          <p class="wf-review-text">第一次投稿被拒了，但收到了很具体的修改建议，说“前十五秒信息密度不够，建议把结论提前”。按建议改完第二次就上线了。这种反馈对新人来说是真正有用的。</p>
+          <span class="wf-review-tag">创作者计划</span>
+        </article>
+
+        <article class="wf-review-card">
+          <div class="wf-review-top">
+            <span class="wf-avatar wf-avatar--e">林</span>
+            <div class="wf-review-user">林间有风<small>中学教师 · 关注 1 年 4 个月</small></div>
+            <span class="wf-review-stars">★★★★★</span>
+          </div>
+          <p class="wf-review-text">我喜欢它不急着让人“买买买”。很多视频看完的收获是方法，而不是商品。收纳那期我照着把衣柜重排了一遍，花了不到一百块，效果比买新柜子还好。</p>
+          <span class="wf-review-tag">家居收纳</span>
+        </article>
+
+        <article class="wf-review-card">
+          <div class="wf-review-top">
+            <span class="wf-avatar">苏</span>
+            <div class="wf-review-user">苏打水<small>大学生 · 关注 6 个月</small></div>
+            <span class="wf-review-stars">★★★★☆</span>
+          </div>
+          <p class="wf-review-text">作为学生党，预算真的有限。这里的攻略会明确标出花费和替代方案，这点很友好。就是有些内容更新快，价格信息偶尔会滞后，不过反馈之后基本一周内就改了。</p>
+          <span class="wf-review-tag">学生友好</span>
+        </article>
+      </div>
+      <div class="wf-review-more">
+        <button class="wf-btn wf-btn--ghost" type="button" data-wf-modal="feedback">反馈内容问题</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作灵感（深色区） -->
+  <section class="wf-section wf-section--dark" id="wf-inspiration">
+    <div class="wf-container">
+      <div class="wf-sec-head">
+        <div>
+          <span class="wf-sec-eyebrow">INSPIRATION 创作灵感</span>
+          <h2 class="wf-sec-title">想投稿？先从这三个方向开始</h2>
+          <p class="wf-sec-desc">我们整理了社区反馈最多的创作路径，附选题提示与剪辑思路，降低你的起步门槛。</p>
+        </div>
+      </div>
+      <div class="wf-inspo-grid">
+        <article class="wf-inspo-card">
+          <div class="wf-inspo-icon">🧭</div>
+          <h3>从“我的一天”开始</h3>
+          <p>不需要宏大主题，把一天里最具体的一段流程拍清楚，就已经足够。关键是把步骤讲明白。</p>
+          <ul class="wf-inspo-list">
+            <li>选题：一次完整的备菜、一次采购、一次通勤</li>
+            <li>脚本：先写结论，再补过程</li>
+            <li>剪辑：保留一个“失败”的瞬间，真实感更强</li>
+          </ul>
+        </article>
+        <article class="wf-inspo-card">
+          <div class="wf-inspo-icon">📐</div>
+          <h3>用对比制造信息量</h3>
+          <p>同一件事的两种做法，往往比单一展示更有说服力。对比结构天然自带叙事张力。</p>
+          <ul class="wf-inspo-list">
+            <li>选题：整理前后、两种方案成本对比</li>
+            <li>拍摄：保持机位一致，画面才好比较</li>
+            <li>字幕：把关键数字放在画面上，便于截取</li>
+          </ul>
+        </article>
+        <article class="wf-inspo-card">
+          <div class="wf-inspo-icon">🎙️</div>
+          <h3>让人物自己说话</h3>
+          <p>访谈不必端着。找一个你真正好奇的人，问三个具体的问题，往往比十个大问题更有内容。</p>
+          <ul class="wf-inspo-list">
+            <li>选题：身边的摊主、手艺人、同行</li>
+            <li>提问：聚焦“怎么做”而非“怎么想”</li>
+            <li>后期：保留停顿与语气词，人物会更立体</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业动态 + 合作伙伴 -->
+  <section class="wf-section" id="wf-news">
+    <div class="wf-container">
+      <div class="wf-sec-head">
+        <div>
+          <span class="wf-sec-eyebrow">NEWS 企业动态</span>
+          <h2 class="wf-sec-title">官方发布与内容更新</h2>
+          <p class="wf-sec-desc">平台运营、活动报名与内容上新的公开信息，每月同步。</p>
+        </div>
+      </div>
+      <div class="wf-news-wrap">
+        <div class="wf-news-list">
+          <article class="wf-news-item">
+            <div class="wf-news-date"><b>18</b><span>11月</span></div>
+            <div class="wf-news-content">
+              <h3>「秋日生活福利地图」专题上线，首批收录 12 条原创影像</h3>
+              <p>专题覆盖六座城市的市集、老店与社区空间，所有路线均由本地创作者实地走访后整理。</p>
+              <span class="wf-news-tag">官方发布</span>
+            </div>
+          </article>
+          <article class="wf-news-item">
+            <div class="wf-news-date"><b>12</b><span>11月</span></div>
+            <div class="wf-news-content">
+              <h3>2026 冬季创作者挑战赛开启报名，主题为「我的生活福利清单」</h3>
+              <p>报名通道持续至 12 月 20 日，作品经编辑部初审后进入社区投票环节，评审标准与奖励细则已公开。</p>
+              <span class="wf-news-tag">比赛报名</span>
+            </div>
+          </article>
+          <article class="wf-news-item">
+            <div class="wf-news-date"><b>05</b><span>11月</span></div>
+            <div class="wf-news-content">
+              <h3>内容品控升级：测评类视频新增信息复核流程</h3>
+              <p>涉及价格、参数与使用结论的内容，将经过至少两次交叉核实，并在页面标注更新日期。</p>
+              <span class="wf-news-tag">品质提升</span>
+            </div>
+          </article>
+          <article class="wf-news-item">
+            <div class="wf-news-date"><b>27</b><span>10月</span></div>
+            <div class="wf-news-content">
+              <h3>新人创作者扶持计划第二期名单公布，共 15 位作者入选</h3>
+              <p>入选作者将获得制作补贴、选题辅导与首页推荐位，下一期申请预计在明年一季度开放。</p>
+              <span class="wf-news-tag">创作者成长</span>
+            </div>
+          </article>
+          <article class="wf-news-item">
+            <div class="wf-news-date"><b>15</b><span>10月</span></div>
+            <div class="wf-news-content">
+              <h3>公益影像计划启动：为乡村学校提供影像记录培训</h3>
+              <p>首期与三所乡村学校合作，提供设备支持与线上课程，记录在地生活与校园故事。</p>
+              <span class="wf-news-tag">社会责任</span>
+            </div>
+          </article>
+        </div>
+
+        <aside class="wf-partner-box">
+          <h3>合作品牌与伙伴</h3>
+          <p>我们与重视真实内容的伙伴长期合作，共同为用户提供可靠信息。</p>
+          <div class="wf-partner-grid">
+            <div class="wf-partner-cell">城市生活周刊</div>
+            <div class="wf-partner-cell">慢食研究所</div>
+            <div class="wf-partner-cell">邻里市集</div>
+            <div class="wf-partner-cell">手作共益社</div>
+            <div class="wf-partner-cell">山野影像</div>
+            <div class="wf-partner-cell">家庭整理协会</div>
+          </div>
+          <div class="wf-side-card" style="margin:22px 0 0;box-shadow:none;background:var(--wf-cream);padding:18px">
+            <h4>商务合作</h4>
+            <p style="font-size:12.5px;color:var(--wf-ink-soft);line-height:1.75">合作内容需明确标注来源，测评类结论不接受干预。欢迎与我们价值观一致的品牌联系。</p>
+            <button class="wf-btn wf-btn--ghost" type="button" style="margin-top:14px;width:100%;justify-content:center" data-wf-modal="feedback">提交合作意向</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="wf-section wf-section--tint" id="wf-faq">
+    <div class="wf-container">
+      <div class="wf-sec-head" style="justify-content:center;text-align:center;">
+        <div>
+          <span class="wf-sec-eyebrow" style="justify-content:center;display:flex;">FAQ 帮助中心</span>
+          <h2 class="wf-sec-title">关于360福利社，你可能想知道</h2>
+          <p class="wf-sec-desc" style="margin:8px auto 0;">内容授权、投稿流程、账号与反馈渠道的常见问题。</p>
+        </div>
+      </div>
+      <div class="wf-faq-list">
+        <details class="wf-faq-item" open>
+          <summary>360福利社的内容都是原创的吗？</summary>
+          <p>平台上的内容分为两类：官方编辑部出品的原创节目，以及社区创作者授权发布的原创投稿。所有上线内容均经过授权确认，涉及第三方素材的部分会明确标注来源。如果发现疑似侵权内容，可以通过反馈弹窗提交信息，我们会在收到后尽快核查处理。</p>
+        </details>
+        <details class="wf-faq-item">
+          <summary>如何向360福利社投稿？有什么要求？</summary>
+          <p>点击页面任意“投稿入口”按钮即可打开投稿表单，填写作品链接、题材方向与简要说明。建议视频为横版 16:9、分辨率不低于 1080p，信息类内容请准备好数据来源。编辑部一般在七个工作日内回复，未通过的作品也会给出具体的修改建议。</p>
+        </details>
+        <details class="wf-faq-item">
+          <summary>挑战赛的评审标准是什么？</summary>
+          <p>评审分为两轮：编辑部初审侧重信息准确性与内容完整性，社区投票侧重真实感与实用性。两部分按 6:4 加权计算最终结果。投票环节公开透明，禁止刷票，一经发现取消参评资格。完整细则会在每届比赛页面公布。</p>
+        </details>
+        <details class="wf-faq-item">
+          <summary>视频里的价格与优惠信息会及时更新吗？</summary>
+          <p>会。涉及价格、活动与权益的内容均标注信息采集时间，编辑部会定期复核。由于各地实际执行情况存在差异，我们建议用户在参考时以当地实际情况为准。如果发现明显滞后的信息，欢迎通过反馈渠道告知，通常会在四十八小时内处理。</p>
+        </details>
+        <details class="wf-faq-item">
+          <summary>可以下载视频或用于二次创作吗？</summary>
+          <p>平台内容版权归作者与360福利社共同所有。个人学习与分享可正常引用并注明出处；商业用途、二次剪辑或批量转载需提前申请授权。我们为创作者提供部分官方素材包，可在通过申请后获取，具体规则见投稿页面说明。</p>
+        </details>
+        <details class="wf-faq-item">
+          <summary>如何成为签约创作者？</summary>
+          <p>通常需要在平台持续投稿三个月以上，作品数量不少于八条，且内容方向与平台调性一致。达到条件后可提交签约申请，编辑部会综合内容质量、更新稳定性与社区反馈进行评估。签约后享有选题支持、制作补贴与优先推荐等权益。</p>
+        </details>
+        <details class="wf-faq-item">
+          <summary>遇到播放问题或页面异常怎么办？</summary>
+          <p>建议先尝试刷新页面或更换浏览器。如果问题持续存在，请通过反馈弹窗描述具体情况，包括设备类型、浏览器版本与问题发生时间。技术支持团队会在工作日内跟进，并在必要时通过邮件回复处理进展。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系与投稿 -->
+  <section class="wf-section" id="wf-contact">
+    <div class="wf-container">
+      <div class="wf-contact-wrap">
+        <div>
+          <span class="wf-sec-eyebrow">CONTACT 联系我们</span>
+          <h2>把你的福利经验，变成一条值得被看见的视频</h2>
+          <p>无论你是长期创作者，还是第一次拿起相机，360福利社都欢迎你的投稿。我们提供选题建议、拍摄清单与后期辅导，也接受关于内容的反馈与合作洽谈。</p>
+          <div class="wf-contact-info">
+            <div class="wf-contact-row">
+              <span class="wf-contact-ico">✉</span>
+              <div><b>投稿与合作邮箱</b><span>content@fuli-video.example</span></div>
+            </div>
+            <div class="wf-contact-row">
+              <span class="wf-contact-ico">☎</span>
+              <div><b>商务联系电话</b><span>工作日上午 10:00 - 18:00</span></div>
+            </div>
+            <div class="wf-contact-row">
+              <span class="wf-contact-ico">⌂</span>
+              <div><b>办公地址</b><span>城市文创园 B 座 5 层 · 内容中心</span></div>
+            </div>
+            <div class="wf-contact-row">
+              <span class="wf-contact-ico">↗</span>
+              <div><b>社区反馈</b><span>页面右下角可随时提交问题与建议</span></div>
+            </div>
+          </div>
+        </div>
+        <form class="wf-form" id="wf-submit-form">
+          <div>
+            <label for="wf-f-name">你的称呼</label>
+            <input id="wf-f-name" type="text" placeholder="例如：阿橙" autocomplete="nickname">
+          </div>
+          <div>
+            <label for="wf-f-type">投稿方向</label>
+            <select id="wf-f-type">
+              <option>福利攻略 / 实用技巧</option>
+              <option>家居收纳 / 空间改造</option>
+              <option>美食烹饪 / 一人食</option>
+              <option>亲子成长 / 家庭教育</option>
+              <option>人物访谈 / 创作幕后</option>
+              <option>城市探索 / 在地文化</option>
+            </select>
+          </div>
+          <div>
+            <label for="wf-f-desc">作品简介</label>
+            <textarea id="wf-f-desc" placeholder="简单介绍作品内容、时长与拍摄背景，我们会尽快回复。"></textarea>
+          </div>
+          <button class="wf-btn wf-btn--primary" type="submit">提交投稿意向</button>
+          <p class="wf-form-note">提交即表示同意我们通过所留方式与你联系，信息仅用于本次沟通。</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 页脚 -->
+<footer class="wf-footer">
+  <div class="wf-container">
+    <div class="wf-footer-grid">
+      <div class="wf-footer-brand">
+        <div class="wf-logo" style="gap:10px">
+          <span class="wf-logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="11" r="6.4" stroke="#fff" stroke-width="2"/>
+              <path d="M10.2 8.2 L15.6 11 L10.2 13.8 Z" fill="#fff"/>
+              <rect x="6" y="19" width="12" height="2" rx="1" fill="#fff" opacity=".85"/>
+            </svg>
+          </span>
+          <span class="wf-logo-text">
+            <span class="wf-logo-name">360福利社</span>
+            <span class="wf-logo-sub">FULI VIDEO</span>
+          </span>
+        </div>
+        <p>360福利社官方网站，一个专注生活福利与实用攻略的原创视频品牌。我们深耕生活影像垂直领域，以正版高清内容与持续运营的社区，为用户提供值得信赖的信息与陪伴。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#wf-focus">焦点视频</a></li>
+          <li><a href="#wf-videos">热门视频流</a></li>
+          <li><a href="#wf-topics">专题企划</a></li>
+          <li><a href="#wf-wall">影像作品墙</a></li>
+          <li><a href="#wf-reviews">用户评价</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于品牌</h4>
+        <ul>
+          <li><a href="#wf-about">品牌故事</a></li>
+          <li><a href="#wf-creators">创作者矩阵</a></li>
+          <li><a href="#wf-news">企业动态</a></li>
+          <li><a href="#wf-inspiration">创作灵感</a></li>
+          <li><a href="#wf-faq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与与联系</h4>
+        <ul>
+          <li><a href="#wf-contact">投稿入口</a></li>
+          <li><a href="#wf-contact">商务合作</a></li>
+          <li><a href="#wf-news">比赛报名</a></li>
+          <li><a href="#wf-reviews">问题反馈</a></li>
+          <li><a href="#wf-top">回到首页</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wf-footer-meta">
+      <span>© 2026 360福利社 官方网站 · 版权所有 · 持续运营中</span>
+      <span>原创内容受版权保护 · 内容均为正版授权或社区创作者投稿</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 弹窗 -->
+<div class="wf-modal" id="wf-modal" role="dialog" aria-modal="true" aria-labelledby="wf-modal-title">
+  <div class="wf-modal-box wf-modal-relative">
+    <button class="wf-modal-close" type="button" aria-label="关闭弹窗">×</button>
+    <h3 id="wf-modal-title">标题</h3>
+    <p class="wf-modal-sub" id="wf-modal-sub">说明</p>
+    <div id="wf-modal-body"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="wf-toast" id="wf-toast" role="status" aria-live="polite"></div>
+
+<!-- 回到顶部 -->
+<button class="wf-backtop" id="wf-backtop" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 移动端导航 ---------- */
+  var burger = document.getElementById('wf-burger');
+  var nav = document.getElementById('wf-nav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* ---------- Toast ---------- */
+  var toastEl = document.getElementById('wf-toast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      toastEl.classList.remove('show');
+    }, 2200);
+  }
+
+  /* ---------- 搜索反馈 ---------- */
+  var searchInput = document.getElementById('wf-search-input');
+  var searchBtn = document.getElementById('wf-search-btn');
+  var searchMsg = document.getElementById('wf-search-msg');
+  var searchTimer = null;
+  function runSearch(){
+    if(!searchInput) return;
+    var q = (searchInput.value || '').trim();
+    if(!q){
+      showSearchMsg('请输入关键词，例如「收纳」「省钱」「亲子」');
+      return;
+    }
+    showSearchMsg('正在检索「' + q + '」相关内容…');
+    setTimeout(function(){
+      showSearchMsg('「' + q + '」相关结果已匹配，向下滚动查看视频流');
+      toast('已根据「' + q + '」为你定位内容');
+      var target = document.getElementById('wf-videos');
+      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 600);
+  }
+  function showSearchMsg(text){
+    if(!searchMsg) return;
+    searchMsg.textContent = text;
+    searchMsg.classList.add('show');
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function(){
+      searchMsg.classList.remove('show');
+    }, 3200);
+  }
+  if(searchBtn){
+    searchBtn.addEventListener('click', runSearch);
+  }
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+    });
+  }
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  document.querySelectorAll('[data-wf-like]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var numEl = btn.querySelector('.wf-like-num');
+      var liked = btn.classList.toggle('is-liked');
+      btn.setAttribute('aria-pressed', liked ? 'true' : 'false');
+      if(numEl){
+        var n = parseInt(numEl.textContent, 10) || 0;
+        numEl.textContent = liked ? (n + 1) : Math.max(0, n - 1);
+      }
+      toast(liked ? '已点赞，感谢你的支持' : '已取消点赞');
+    });
+  });
+  document.querySelectorAll('[data-wf-save]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var saved = btn.classList.toggle('is-saved');
+      btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
+      toast(saved ? '已收藏到个人清单' : '已取消收藏');
+    });
+  });
+
+  /* ---------- 题材筛选 ---------- */
+  var filterRow = document.getElementById('wf-filter-row');
+  var videoGrid = document.getElementById('wf-video-grid');
+  if(filterRow && videoGrid){
+    filterRow.addEventListener('click', function(e){
+      var btn = e.target.closest('.wf-filter-btn');
+      if(!btn) return;
+      filterRow.querySelectorAll('.wf-filter-btn').forEach(function(b){
+        b.classList.remove('is-active');
+      });
+      btn.classList.add('is-active');
+      var f = btn.getAttribute('data-filter');
+      var shown = 0;
+      videoGrid.querySelectorAll('.wf-video-card').forEach(function(card){
+        var tags = card.getAttribute('data-tags') || '';
+        var ok = (f === 'all') || tags.indexOf(f) !== -1;
+        card.style.display = ok ? '' : 'none';
+        if(ok) shown++;
+      });
+      toast(f === 'all' ? '已显示全部内容' : '已筛选：' + btn.textContent + '（' + shown + ' 条）');
+    });
+  }
+
+  /* ---------- 数字滚动 ---------- */
+  var counters = document.querySelectorAll('[data-wf-count]');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-wf-count'), 10) || 0;
+    var start = null;
+    var dur = 1200;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString('zh-CN');
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window && counters.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          animateCount(en.target);
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:.4});
+    counters.forEach(function(c){ io.observe(c); });
+  } else {
+    counters.forEach(function(c){ c.textContent = c.getAttribute('data-wf-count'); });
+  }
+
+  /* ---------- 弹窗 ---------- */
+  var modal = document.getElementById('wf-modal');
+  var modalTitle = document.getElementById('wf-modal-title');
+  var modalSub = document.getElementById('wf-modal-sub');
+  var modalBody = document.getElementById('wf-modal-body');
+  var lastFocus = null;
+
+  function openModal(title, sub, html){
+    if(!modal) return;
+    lastFocus = document.activeElement;
+    modalTitle.textContent = title;
+    modalSub.textContent = sub || '';
+    modalBody.innerHTML = html || '';
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    var closeBtn = modal.querySelector('.wf-modal-close');
+    if(closeBtn) closeBtn.focus();
+  }
+  function closeModal(){
+    if(!modal) return;
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  if(modal){
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeModal();
+      if(e.target.classList.contains('wf-modal-close')) closeModal();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+    });
+  }
+
+  /* 分享弹窗 */
+  function shareHtml(){
+    return '<div class="wf-share-grid">' +
+      '<button class="wf-share-item" type="button" data-share="copy">复制页面链接</button>' +
+      '<button class="wf-share-item" type="button" data-share="wechat">分享到微信</button>' +
+      '<button class="wf-share-item" type="button" data-share="weibo">分享到微博</button>' +
+      '<button class="wf-share-item" type="button" data-share="qq">分享到 QQ</button>' +
+      '</div>';
+  }
+
+  /* 投稿弹窗 */
+  function submitHtml(){
+    return '<form id="wf-modal-submit-form">' +
+      '<div class="wf-form">' +
+      '<div><label for="wf-m-name">你的称呼</label><input id="wf-m-name" type="text" placeholder="例如：阿橙" required></div>' +
+      '<div><label for="wf-m-desc">作品简介</label><textarea id="wf-m-desc" placeholder="简单介绍作品内容与时长" required></textarea></div>' +
+      '<button class="wf-btn wf-btn--primary" type="submit">提交投稿意向</button>' +
+      '</div></form>';
+  }
+
+  /* 反馈弹窗 */
+  function feedbackHtml(){
+    return '<form id="wf-modal-feedback-form">' +
+      '<div class="wf-form">' +
+      '<div><label for="wf-mfb-type">反馈类型</label>' +
+      '<select id="wf-mfb-type"><option>内容信息有误</option><option>播放或页面异常</option><option>版权与授权问题</option><option>商务合作意向</option><option>其他建议</option></select></div>' +
+      '<div><label for="wf-mfb-text">问题描述</label><textarea id="wf-mfb-text" placeholder="请描述具体情况，便于我们快速跟进" required></textarea></div>' +
+      '<button class="wf-btn wf-btn--primary" type="submit">提交反馈</button>' +
+      '</div></form>';
+  }
+
+  /* 作者弹窗 */
+  function authorHtml(info){
+    var parts = info.split('|');
+    var name = parts[0] || '创作者';
+    var field = parts[1] || '';
+    var bio = parts[2] || '';
+    return '<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">' +
+      '<span class="wf-avatar" style="width:52px;height:52px;font-size:20px">' + name.charAt(0) + '</span>' +
+      '<div><div style="font-weight:800;font-size:16px">' + name + '</div>' +
+      '<div style="font-size:12.5px;color:#e04f22;font-weight:600">' + field + '</div></div></div>' +
+      '<p style="font-size:13.5px;color:#6b5c55;line-height:1.8">' + bio + '</p>' +
+      '<div style="display:flex;gap:10px;margin-top:18px">' +
+      '<button class="wf-btn wf-btn--primary" type="button" data-close="1" style="flex:1;justify-content:center">关注创作者</button>' +
+      '<button class="wf-btn wf-btn--ghost" type="button" data-close="1" style="flex:1;justify-content:center">稍后再说</button>' +
+      '</div>';
+  }
+
+  document.querySelectorAll('[data-wf-modal]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var type = btn.getAttribute('data-wf-modal');
+      if(type === 'share'){
+        openModal('分享360福利社', '把这个页面分享给同样热爱生活的朋友', shareHtml());
+      } else if(type === 'submit'){
+        openModal('投稿入口', '填写基本信息，编辑部会在七个工作日内回复', submitHtml());
+      } else if(type === 'feedback'){
+        openModal('提交反馈', '你的每一条反馈都会进入处理流程', feedbackHtml());
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-wf-author]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var info = btn.getAttribute('data-wf-author') || '';
+      var name = info.split('|')[0] || '创作者';
+      openModal(name, '创作者主页 · 360福利社社区', authorHtml(info));
+    });
+  });
+
+  /* 弹窗内事件委托 */
+  if(modal){
+    modal.addEventListener('click', function(e){
+      var t = e.target;
+      if(t.hasAttribute('data-share')){
+        var kind = t.getAttribute('data-share');
+        if(kind === 'copy'){
+          var url = window.location.href;
+          if(navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(url).then(function(){
+              toast('链接已复制到剪贴板');
+            }).catch(function(){
+              toast('复制失败，请手动复制地址');
+            });
+          } else {
+            toast('当前浏览器不支持一键复制');
+          }
+        } else if(kind === 'wechat'){
+          toast('请打开微信，搜索「360福利社」关注后分享');
+        } else if(kind === 'weibo'){
+          toast('已为你准备好微博分享内容');
+        } else {
+          toast('已为你准备好 QQ 分享内容');
+        }
+      }
+      if(t.hasAttribute('data-close')){
+        closeModal();
+        toast('已记录你的操作');
+      }
+    });
+  }
+
+  /* 弹窗内表单提交 */
+  document.addEventListener('submit', function(e){
+    if(e.target.id === 'wf-modal-submit-form'){
+      e.preventDefault();
+      closeModal();
+      toast('投稿意向已收到，感谢你的创作');
+    }
+    if(e.target.id === 'wf-modal-feedback-form'){
+      e.preventDefault();
+      closeModal();
+      toast('反馈已提交，我们会尽快处理');
+    }
+  });
+
+  /* 页面内投稿表单 */
+  var submitForm = document.getElementById('wf-submit-form');
+  if(submitForm){
+    submitForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var nameEl = document.getElementById('wf-f-name');
+      var descEl = document.getElementById('wf-f-desc');
+      var name = nameEl ? nameEl.value.trim() : '';
+      var desc = descEl ? descEl.value.trim() : '';
+      if(!name){
+        toast('请先填写你的称呼');
+        if(nameEl) nameEl.focus();
+        return;
+      }
+      if(!desc){
+        toast('请简单介绍你的作品');
+        if(descEl) descEl.focus();
+        return;
+      }
+      submitForm.reset();
+      toast('投稿意向已提交，我们会通过你留下的方式联系');
+    });
+  }
+
+  /* ---------- 回到顶部 ---------- */
+  var backtop = document.getElementById('wf-backtop');
+  if(backtop){
+    backtop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 480){
+        backtop.classList.add('show');
+      } else {
+        backtop.classList.remove('show');
+      }
+    }, {passive:true});
+  }
+
+  /* ---------- 导航高亮 ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.wf-nav a[href^="#"]'));
+  var sections = navLinks.map(function(a){
+    var id = a.getAttribute('href').slice(1);
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if('IntersectionObserver' in window && sections.length){
+    var navIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          navLinks.forEach(function(a){
+            a.classList.toggle('is-active', a.getAttribute('href') === '#' + en.target.id);
+          });
+        }
+      });
+    }, {rootMargin:'-40% 0px -50% 0px'});
+    sections.forEach(function(s){ navIo.observe(s); });
+  }
+
+  /* ---------- 品牌形象片占位交互 ---------- */
+  var playBtn = document.querySelector('.wf-play-btn');
+  if(playBtn){
+    playBtn.addEventListener('click', function(){
+      toast('品牌形象片即将播放，请保持页面在前台');
+    });
+  }
+
+})();
+</script>
+</body>
+                                                                                                </html>
